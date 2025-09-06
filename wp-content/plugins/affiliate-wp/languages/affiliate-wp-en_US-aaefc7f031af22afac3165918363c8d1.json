@@ -1,0 +1,132 @@
+{
+    "translation-revision-date": "2024-11-06 12:33-0700",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "assets\/js\/editor\/build\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "en_US",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Name": [
+                "Name"
+            ],
+            "Username": [
+                "Username"
+            ],
+            "Website": [
+                "Website"
+            ],
+            "Site Default": [
+                "Site Default"
+            ],
+            "Account Email": [
+                "Account Email"
+            ],
+            "Payment Email": [
+                "Payment Email"
+            ],
+            "Your Name": [
+                "Your Name"
+            ],
+            "Website URL": [
+                "Website URL"
+            ],
+            "ID": [
+                "ID"
+            ],
+            "URL": [
+                "URL"
+            ],
+            "Creative": [
+                "Creative"
+            ],
+            "Text": [
+                "Text"
+            ],
+            "Default": [
+                "Default"
+            ],
+            "General": [
+                "General"
+            ],
+            "Terms of Use Page": [
+                "Terms of Use Page"
+            ],
+            "Pretty Affiliate URLs": [
+                "Pretty Affiliate URLs"
+            ],
+            "Button Text": [
+                "Button Text"
+            ],
+            "Password": [
+                "Password"
+            ],
+            "How will you promote us?": [
+                "How will you promote us?"
+            ],
+            "Email": [
+                "Email"
+            ],
+            "First Name": [
+                "First Name"
+            ],
+            "Last Name": [
+                "Last Name"
+            ],
+            "Affiliate Terms of Use": [
+                "Affiliate Terms of Use"
+            ],
+            "Register": [
+                "Register"
+            ],
+            "Log into your account": [
+                "Log into your account"
+            ],
+            "Register a new affiliate account": [
+                "Register a new affiliate account"
+            ],
+            "Option": [
+                "Option"
+            ],
+            "Email Address": [
+                "Email Address"
+            ],
+            "Phone Number": [
+                "Phone Number"
+            ],
+            "Message": [
+                "Message"
+            ],
+            "Lost your password?": [
+                "Lost your password?"
+            ],
+            "Agree to our %1$sTerms of Use and Privacy Policy%2$s": [
+                "Agree to our %1$sTerms of Use and Privacy Policy%2$s"
+            ],
+            "Confirm Password": [
+                "Confirm Password"
+            ],
+            "(required)": [
+                "(required)"
+            ],
+            "Affiliate Area": [
+                "Affiliate Area"
+            ],
+            "Affiliate Login": [
+                "Affiliate Login"
+            ],
+            "Affiliate Registration": [
+                "Affiliate Registration"
+            ],
+            "Copy and paste the following:": [
+                "Copy and paste the following:"
+            ],
+            "Subscribe": [
+                "Subscribe"
+            ]
+        }
+    }
+}

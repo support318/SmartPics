@@ -1,0 +1,76 @@
+---
+description: Plugin integration rules. Applies for integration classes in /includes/integrations/*
+globs: includes/integrations/**/*.php
+alwaysApply: false
+---
+# Plugin Integration Development Rules
+
+## File Structure
+- Place new integrations in `includes/integrations/`
+- Follow naming convention: `class-{plugin-name}.php`
+- Extend `WPF_Integrations_Base`
+- Larger integrations can be broken into smaller files, using `includes/integrations/{plugin-name}/class-{plugin-name}.php` as the class that extends `WPF_Integrations_Base`
+- In the case of larger integrations, sub-components can go into descriptively named classes, like `includes/integrations/{plugin-name}/class-{plugin-name}-admin.php`
+
+## Integration Points
+- Form submissions
+- User registration
+- Purchase/order events
+- Membership status changes
+- Course/lesson completion
+- Custom post type events
+
+## Common Patterns
+```php
+class WPF_Example_Plugin extends WPF_Integrations_Base {
+
+    /**
+     * Gets things started
+     *
+     * @since 1.0
+     */
+    public function init() {
+        // Add filters and actions
+        
+        add_action( 'example_plugin_event', array( $this, 'event_handler' ) );
+    }
+
+    /**
+     * Formats meta fields for field mapping
+     *
+     * @since  1.0
+     *
+     * @param array $meta_fields The meta fields.
+     * @return array Meta fields
+     */
+    public function add_meta_fields( $meta_fields ) {
+        $meta_fields['example_field'] = array(
+            'label'  => 'Example Field',
+            'type'   => 'text',
+            'group'  => 'example_plugin',
+        );
+        return $meta_fields;
+    }
+}
+```
+
+## Testing Requirements
+- Test all integration points
+- Verify data mapping
+- Check tag application/removal
+- Test error handling
+- Validate backwards compatibility
+
+## Common Issues
+- Hook priority conflicts
+- Data format mismatches
+- Missing dependencies
+- Performance impact
+- Compatibility with plugin versions
+
+## Best Practices
+- Use existing filters when possible
+- Document all hooks
+- Cache expensive operations
+- Handle errors gracefully
+- Follow plugin's data structure

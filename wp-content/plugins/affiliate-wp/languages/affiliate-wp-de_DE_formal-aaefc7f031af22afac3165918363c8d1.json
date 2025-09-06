@@ -1,0 +1,111 @@
+{
+    "translation-revision-date": "2022-10-12 01:18-0400",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "assets\/js\/editor\/build\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "de_DE@formal",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Name": [
+                "Vorname"
+            ],
+            "Username": [
+                "Benutzername"
+            ],
+            "Website": [
+                "Webseite"
+            ],
+            "Site Default": [
+                "Seitenstandard"
+            ],
+            "Account Email": [
+                "E-Mail Adresse des Kontos"
+            ],
+            "Payment Email": [
+                "Zahlungs-E-Mail"
+            ],
+            "Email Address": [
+                "E-Mail Adresse"
+            ],
+            "Website URL": [
+                "Website URL"
+            ],
+            "Your Name": [
+                "Ihr Name"
+            ],
+            "URL": [
+                "URL"
+            ],
+            "Text": [
+                "Text"
+            ],
+            "Affiliate Area": [
+                "Affiliatebereich"
+            ],
+            "ID": [
+                "ID"
+            ],
+            "Pretty Affiliate URLs": [
+                "Sch\u00f6ne Affiliatelinks"
+            ],
+            "Password": [
+                "Passwort"
+            ],
+            "How will you promote us?": [
+                "Wie werben Sie f\u00fcr uns?"
+            ],
+            "General": [
+                "Allgemein"
+            ],
+            "Email": [
+                "E-Mail"
+            ],
+            "First Name": [
+                "Vorname"
+            ],
+            "Last Name": [
+                "Nachname"
+            ],
+            "Register": [
+                "Registrieren"
+            ],
+            "Log into your account": [
+                "Melde dich in deinem Konto an"
+            ],
+            "Register a new affiliate account": [
+                "Ein neues Affiliate-Konto registrieren"
+            ],
+            "Option": [
+                "Option"
+            ],
+            "Phone Number": [
+                "Telefonnummer"
+            ],
+            "Message": [
+                "Nachricht"
+            ],
+            "Lost your password?": [
+                "Passwort vergessen?"
+            ],
+            "Confirm Password": [
+                "Passwort best\u00e4tigen"
+            ],
+            "(required)": [
+                "(erforderlich)"
+            ],
+            "Creative": [
+                "Kreativ"
+            ],
+            "Copy and paste the following:": [
+                "Folgendes kopieren & einf\u00fcgen:"
+            ],
+            "Subscribe": [
+                "Abonnieren"
+            ]
+        }
+    }
+}

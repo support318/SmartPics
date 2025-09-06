@@ -1,0 +1,11 @@
+{
+    "tasks": [
+        {
+            "name": "Install PHP Dependencies",
+            "command": "composer update",
+            "description": "Install required PHP dependencies via Composer",
+            "runAtStart": true,
+            "skipIfFileExists": "vendor/autoload.php"
+        }
+    ]
+}
