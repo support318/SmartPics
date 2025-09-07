@@ -56,25 +56,28 @@ class SmartPics {
     }
     
     private function includes() {
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-database.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-image-processor.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-ai-providers.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-content-analyzer.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-schema-generator.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-seo-integration.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-cloudflare-integration.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-similarity-detector.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-cache-manager.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-geotargeting.php';
-        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-bulk-processor.php';
+        // Load core classes first
+        $this->safe_include('includes/class-smartpics-database.php');
         
+        // Load admin classes only in admin
         if (is_admin()) {
-            require_once SMARTPICS_PLUGIN_PATH . 'admin/class-smartpics-admin.php';
-            require_once SMARTPICS_PLUGIN_PATH . 'admin/class-smartpics-settings.php';
-            require_once SMARTPICS_PLUGIN_PATH . 'admin/class-smartpics-dashboard.php';
+            $this->safe_include('admin/class-smartpics-admin.php');
+            $this->safe_include('admin/class-smartpics-settings.php');
+            $this->safe_include('admin/class-smartpics-dashboard.php');
         }
         
-        require_once SMARTPICS_PLUGIN_PATH . 'public/class-smartpics-public.php';
+        // Load public class
+        $this->safe_include('public/class-smartpics-public.php');
+        
+        // Load other classes only if needed (prevents fatal errors)
+        // These will be loaded on-demand when actually needed
+    }
+    
+    private function safe_include($file) {
+        $full_path = SMARTPICS_PLUGIN_PATH . $file;
+        if (file_exists($full_path)) {
+            include_once $full_path;
+        }
     }
     
     private function init_hooks() {
@@ -101,40 +104,41 @@ class SmartPics {
     }
     
     public function activate() {
-        SmartPics_Database::create_tables();
-        
+        // Simple activation without complex database operations
         $default_settings = array(
-            'vertex_ai_project_id' => '',
-            'vertex_ai_location' => 'us-central1',
             'vertex_ai_api_key' => '',
             'openai_api_key' => '',
             'claude_api_key' => '',
-            'cloudflare_account_id' => '',
-            'cloudflare_api_token' => '',
-            'r2_bucket_name' => '',
-            'r2_access_key_id' => '',
-            'r2_secret_access_key' => '',
-            'gmb_api_key' => '',
-            'vector_db_url' => '',
-            'vector_db_api_key' => '',
             'primary_ai_provider' => 'vertex_ai',
-            'fallback_providers' => array('openai', 'claude'),
-            'enable_caching' => true,
-            'enable_similarity_detection' => true,
-            'enable_content_analysis' => true,
-            'enable_schema_generation' => true,
-            'enable_geotargeting' => false,
-            'similarity_threshold' => 0.85,
-            'cache_duration' => 30,
-            'batch_size' => 10,
-            'rate_limit' => 100
+            'enable_auto_processing' => false,
         );
         
-        update_option('smartpics_settings', $default_settings);
+        add_option('smartpics_settings', $default_settings);
+        add_option('smartpics_version', SMARTPICS_VERSION);
         
-        wp_schedule_event(time(), 'hourly', 'smartpics_cleanup_cache');
+        // Create database tables safely
+        $this->create_basic_tables();
+    }
+    
+    private function create_basic_tables() {
+        global $wpdb;
         
-        flush_rewrite_rules();
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
+        
+        $charset_collate = $wpdb->get_charset_collate();
+        
+        $sql = "CREATE TABLE $table_name (
+            id mediumint(9) NOT NULL AUTO_INCREMENT,
+            attachment_id bigint(20) NOT NULL,
+            alt_text text DEFAULT NULL,
+            ai_provider varchar(50) DEFAULT NULL,
+            created_at datetime DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id),
+            KEY attachment_id (attachment_id)
+        ) $charset_collate;";
+        
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
     }
     
     public function deactivate() {
