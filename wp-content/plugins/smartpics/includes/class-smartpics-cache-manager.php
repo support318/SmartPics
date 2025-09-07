@@ -4,12 +4,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Cache_Manager {
+class SmartPics_Cache_Manager {
     
     private $settings;
     
     public function __construct() {
-        $this->settings = get_option('aialt_settings', array());
+        $this->settings = get_option('smartpics_settings', array());
     }
     
     public function cache_result($image_hash, $result, $context_data = array()) {
@@ -18,7 +18,7 @@ class AIALT_Cache_Manager {
         }
         
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         $similarity_hash = $this->generate_similarity_hash($result);
         $cache_duration = $this->get_cache_duration();
@@ -49,7 +49,7 @@ class AIALT_Cache_Manager {
         }
         
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         $cached = $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table_name WHERE image_hash = %s AND (expires_at IS NULL OR expires_at > NOW())",
@@ -86,14 +86,14 @@ class AIALT_Cache_Manager {
         }
         
         $threshold = $threshold ?? $this->get_similarity_threshold();
-        $similar_results = AIALT_Database::get_similar_images($similarity_hash, $threshold);
+        $similar_results = SmartPics_Database::get_similar_images($similarity_hash, $threshold);
         
         if (!empty($similar_results)) {
             $best_match = $similar_results[0];
             
             // Update usage count
             global $wpdb;
-            $table_name = $wpdb->prefix . 'aialt_image_cache';
+            $table_name = $wpdb->prefix . 'smartpics_image_cache';
             $wpdb->update(
                 $table_name,
                 array('usage_count' => $best_match->usage_count + 1),
@@ -120,7 +120,7 @@ class AIALT_Cache_Manager {
     
     public function clear_cache($type = 'all') {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         switch ($type) {
             case 'expired':
@@ -139,7 +139,7 @@ class AIALT_Cache_Manager {
     }
     
     public function get_cache_statistics() {
-        return AIALT_Database::get_cache_statistics();
+        return SmartPics_Database::get_cache_statistics();
     }
     
     public function optimize_cache() {
@@ -164,7 +164,7 @@ class AIALT_Cache_Manager {
     private function update_similarity_clusters() {
         global $wpdb;
         $cache_table = $wpdb->prefix . 'aialt_image_cache';
-        $clusters_table = $wpdb->prefix . 'aialt_similarity_clusters';
+        $clusters_table = $wpdb->prefix . 'smartpics_similarity_clusters';
         
         // Find images with high similarity that could be clustered
         $similar_groups = $wpdb->get_results("
@@ -198,11 +198,11 @@ class AIALT_Cache_Manager {
     }
     
     public function schedule_cleanup() {
-        if (!wp_next_scheduled('aialt_cleanup_cache')) {
-            wp_schedule_event(time(), 'daily', 'aialt_cleanup_cache');
+        if (!wp_next_scheduled('smartpics_cleanup_cache')) {
+            wp_schedule_event(time(), 'daily', 'smartpics_cleanup_cache');
         }
         
-        add_action('aialt_cleanup_cache', array($this, 'optimize_cache'));
+        add_action('smartpics_cleanup_cache', array($this, 'optimize_cache'));
     }
     
     private function is_caching_enabled() {

@@ -4,12 +4,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Schema_Generator {
+class SmartPics_Schema_Generator {
     
     private $settings;
     
     public function __construct() {
-        $this->settings = get_option('aialt_settings', array());
+        $this->settings = get_option('smartpics_settings', array());
     }
     
     public function generate_page_schema($post_id) {
@@ -96,7 +96,7 @@ class AIALT_Schema_Generator {
         }
         
         // Add license information if available
-        $license = get_post_meta($attachment_id, '_aialt_license', true);
+        $license = get_post_meta($attachment_id, '_smartpics_license', true);
         if (!empty($license)) {
             $schema['license'] = $license;
         }
@@ -293,7 +293,7 @@ class AIALT_Schema_Generator {
     
     public function save_schema_data($post_id, $schema_data) {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_schema_markup';
+        $table_name = $wpdb->prefix . 'smartpics_schema_markup';
         
         // Delete existing schema for this post
         $wpdb->delete($table_name, array('post_id' => $post_id), array('%d'));

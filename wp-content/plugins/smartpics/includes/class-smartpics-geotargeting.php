@@ -4,12 +4,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Geotargeting {
+class SmartPics_Geotargeting {
     
     private $settings;
     
     public function __construct() {
-        $this->settings = get_option('aialt_settings', array());
+        $this->settings = get_option('smartpics_settings', array());
     }
     
     public function is_enabled() {

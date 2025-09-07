@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: AI Alt Text Generator
- * Plugin URI: https://github.com/candidstudios/ai-alt-text-generator
- * Description: Advanced AI-powered alt text, captions, and schema markup generation with multi-provider support, content analysis, and geotargeting capabilities.
+ * Plugin Name: SmartPics
+ * Plugin URI: https://github.com/support318/SmartPics
+ * Description: Advanced AI-powered image optimization with smart alt text, captions, and schema markup generation. Features multi-provider AI support, content analysis, and geotargeting capabilities.
  * Version: 1.0.0
  * Author: Candid Studios
  * Author URI: https://candidstudios.net
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: ai-alt-text-generator
+ * Text Domain: smartpics
  * Domain Path: /languages
  * Requires at least: 5.0
  * Tested up to: 6.6
@@ -20,12 +20,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('AIALT_VERSION', '1.0.0');
-define('AIALT_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('AIALT_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('AIALT_PLUGIN_BASENAME', plugin_basename(__FILE__));
+define('SMARTPICS_VERSION', '1.0.0');
+define('SMARTPICS_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('SMARTPICS_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('SMARTPICS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 
-class AI_Alt_Text_Generator {
+class SmartPics {
     
     private static $instance = null;
     
@@ -56,31 +56,31 @@ class AI_Alt_Text_Generator {
     }
     
     private function includes() {
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-database.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-image-processor.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-ai-providers.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-content-analyzer.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-schema-generator.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-seo-integration.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-cloudflare-integration.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-similarity-detector.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-cache-manager.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-geotargeting.php';
-        require_once AIALT_PLUGIN_PATH . 'includes/class-aialt-bulk-processor.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-database.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-image-processor.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-ai-providers.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-content-analyzer.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-schema-generator.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-seo-integration.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-cloudflare-integration.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-similarity-detector.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-cache-manager.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-geotargeting.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'includes/class-smartpics-bulk-processor.php';
         
         if (is_admin()) {
-            require_once AIALT_PLUGIN_PATH . 'admin/class-aialt-admin.php';
-            require_once AIALT_PLUGIN_PATH . 'admin/class-aialt-settings.php';
-            require_once AIALT_PLUGIN_PATH . 'admin/class-aialt-dashboard.php';
+            require_once SMARTPICS_PLUGIN_PATH . 'admin/class-smartpics-admin.php';
+            require_once SMARTPICS_PLUGIN_PATH . 'admin/class-smartpics-settings.php';
+            require_once SMARTPICS_PLUGIN_PATH . 'admin/class-smartpics-dashboard.php';
         }
         
-        require_once AIALT_PLUGIN_PATH . 'public/class-aialt-public.php';
+        require_once SMARTPICS_PLUGIN_PATH . 'public/class-smartpics-public.php';
     }
     
     private function init_hooks() {
-        add_action('wp_ajax_aialt_process_image', array($this, 'ajax_process_image'));
-        add_action('wp_ajax_aialt_bulk_process', array($this, 'ajax_bulk_process'));
-        add_action('wp_ajax_aialt_get_progress', array($this, 'ajax_get_progress'));
+        add_action('wp_ajax_smartpics_process_image', array($this, 'ajax_process_image'));
+        add_action('wp_ajax_smartpics_bulk_process', array($this, 'ajax_bulk_process'));
+        add_action('wp_ajax_smartpics_get_progress', array($this, 'ajax_get_progress'));
         
         add_filter('wp_handle_upload', array($this, 'handle_upload'), 10, 2);
         add_action('add_attachment', array($this, 'process_new_attachment'));
@@ -89,19 +89,19 @@ class AI_Alt_Text_Generator {
     }
     
     private function admin_init() {
-        new AIALT_Admin();
+        new SmartPics_Admin();
     }
     
     private function public_init() {
-        new AIALT_Public();
+        new SmartPics_Public();
     }
     
     public function load_textdomain() {
-        load_plugin_textdomain('ai-alt-text-generator', false, dirname(AIALT_PLUGIN_BASENAME) . '/languages');
+        load_plugin_textdomain('smartpics', false, dirname(SMARTPICS_PLUGIN_BASENAME) . '/languages');
     }
     
     public function activate() {
-        AIALT_Database::create_tables();
+        SmartPics_Database::create_tables();
         
         $default_settings = array(
             'vertex_ai_project_id' => '',
@@ -130,15 +130,15 @@ class AI_Alt_Text_Generator {
             'rate_limit' => 100
         );
         
-        update_option('aialt_settings', $default_settings);
+        update_option('smartpics_settings', $default_settings);
         
-        wp_schedule_event(time(), 'hourly', 'aialt_cleanup_cache');
+        wp_schedule_event(time(), 'hourly', 'smartpics_cleanup_cache');
         
         flush_rewrite_rules();
     }
     
     public function deactivate() {
-        wp_clear_scheduled_hook('aialt_cleanup_cache');
+        wp_clear_scheduled_hook('smartpics_cleanup_cache');
         flush_rewrite_rules();
     }
     
@@ -147,12 +147,12 @@ class AI_Alt_Text_Generator {
             return $upload;
         }
         
-        $settings = get_option('aialt_settings', array());
+        $settings = get_option('smartpics_settings', array());
         if (empty($settings['vertex_ai_api_key']) && empty($settings['openai_api_key']) && empty($settings['claude_api_key'])) {
             return $upload;
         }
         
-        wp_schedule_single_event(time() + 5, 'aialt_process_uploaded_image', array($upload['file']));
+        wp_schedule_single_event(time() + 5, 'smartpics_process_uploaded_image', array($upload['file']));
         
         return $upload;
     }
@@ -162,7 +162,7 @@ class AI_Alt_Text_Generator {
             return;
         }
         
-        $settings = get_option('aialt_settings', array());
+        $settings = get_option('smartpics_settings', array());
         if (!empty($settings['auto_process']) && $settings['auto_process']) {
             $this->queue_image_processing($attachment_id);
         }
@@ -175,12 +175,12 @@ class AI_Alt_Text_Generator {
             return;
         }
         
-        $settings = get_option('aialt_settings', array());
+        $settings = get_option('smartpics_settings', array());
         if (empty($settings['enable_schema_generation'])) {
             return;
         }
         
-        $schema_generator = new AIALT_Schema_Generator();
+        $schema_generator = new SmartPics_Schema_Generator();
         $schema = $schema_generator->generate_page_schema($post->ID);
         
         if (!empty($schema)) {
@@ -189,15 +189,15 @@ class AI_Alt_Text_Generator {
     }
     
     public function ajax_process_image() {
-        check_ajax_referer('aialt_nonce', 'nonce');
+        check_ajax_referer('smartpics_nonce', 'nonce');
         
         if (!current_user_can('upload_files')) {
-            wp_die(__('You do not have permission to perform this action.', 'ai-alt-text-generator'));
+            wp_die(__('You do not have permission to perform this action.', 'smartpics'));
         }
         
         $attachment_id = intval($_POST['attachment_id']);
         if (!$attachment_id || !wp_attachment_is_image($attachment_id)) {
-            wp_send_json_error(__('Invalid attachment ID.', 'ai-alt-text-generator'));
+            wp_send_json_error(__('Invalid attachment ID.', 'smartpics'));
         }
         
         $result = $this->process_image($attachment_id);
@@ -210,13 +210,13 @@ class AI_Alt_Text_Generator {
     }
     
     public function ajax_bulk_process() {
-        check_ajax_referer('aialt_nonce', 'nonce');
+        check_ajax_referer('smartpics_nonce', 'nonce');
         
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have permission to perform this action.', 'ai-alt-text-generator'));
+            wp_die(__('You do not have permission to perform this action.', 'smartpics'));
         }
         
-        $bulk_processor = new AIALT_Bulk_Processor();
+        $bulk_processor = new SmartPics_Bulk_Processor();
         $job_id = $bulk_processor->start_bulk_job();
         
         if (is_wp_error($job_id)) {
@@ -227,18 +227,18 @@ class AI_Alt_Text_Generator {
     }
     
     public function ajax_get_progress() {
-        check_ajax_referer('aialt_nonce', 'nonce');
+        check_ajax_referer('smartpics_nonce', 'nonce');
         
         if (!current_user_can('upload_files')) {
-            wp_die(__('You do not have permission to perform this action.', 'ai-alt-text-generator'));
+            wp_die(__('You do not have permission to perform this action.', 'smartpics'));
         }
         
         $job_id = sanitize_text_field($_POST['job_id']);
         if (!$job_id) {
-            wp_send_json_error(__('Invalid job ID.', 'ai-alt-text-generator'));
+            wp_send_json_error(__('Invalid job ID.', 'smartpics'));
         }
         
-        $bulk_processor = new AIALT_Bulk_Processor();
+        $bulk_processor = new SmartPics_Bulk_Processor();
         $progress = $bulk_processor->get_job_progress($job_id);
         
         wp_send_json_success($progress);
@@ -249,14 +249,14 @@ class AI_Alt_Text_Generator {
             return false;
         }
         
-        $settings = get_option('aialt_settings', array());
+        $settings = get_option('smartpics_settings', array());
         return !empty($settings['auto_process']) && $settings['auto_process'];
     }
     
     private function queue_image_processing($attachment_id) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_processing_queue';
+        $table_name = $wpdb->prefix . 'smartpics_processing_queue';
         
         $wpdb->insert(
             $table_name,
@@ -271,9 +271,9 @@ class AI_Alt_Text_Generator {
     }
     
     private function process_image($attachment_id) {
-        $processor = new AIALT_Image_Processor();
+        $processor = new SmartPics_Image_Processor();
         return $processor->process_image($attachment_id);
     }
 }
 
-AI_Alt_Text_Generator::get_instance();
+SmartPics::get_instance();

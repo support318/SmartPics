@@ -4,12 +4,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Cloudflare_Integration {
+class SmartPics_Cloudflare_Integration {
     
     private $settings;
     
     public function __construct() {
-        $this->settings = get_option('aialt_settings', array());
+        $this->settings = get_option('smartpics_settings', array());
     }
     
     public function upload_to_r2($file_path, $file_name = null) {

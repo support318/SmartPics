@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Public {
+class SmartPics_Public {
     
     public function __construct() {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
@@ -18,10 +18,10 @@ class AIALT_Public {
         }
         
         wp_enqueue_style(
-            'aialt-public-style',
-            AIALT_PLUGIN_URL . 'assets/css/public.css',
+            'smartpics-public-style',
+            SMARTPICS_PLUGIN_URL . 'assets/css/public.css',
             array(),
-            AIALT_VERSION
+            SMARTPICS_VERSION
         );
     }
     

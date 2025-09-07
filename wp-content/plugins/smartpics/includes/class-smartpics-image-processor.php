@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Image_Processor {
+class SmartPics_Image_Processor {
     
     private $ai_providers;
     private $cache_manager;
@@ -12,27 +12,27 @@ class AIALT_Image_Processor {
     private $content_analyzer;
     
     public function __construct() {
-        $this->ai_providers = new AIALT_AI_Providers();
-        $this->cache_manager = new AIALT_Cache_Manager();
-        $this->similarity_detector = new AIALT_Similarity_Detector();
-        $this->content_analyzer = new AIALT_Content_Analyzer();
+        $this->ai_providers = new SmartPics_AI_Providers();
+        $this->cache_manager = new SmartPics_Cache_Manager();
+        $this->similarity_detector = new SmartPics_Similarity_Detector();
+        $this->content_analyzer = new SmartPics_Content_Analyzer();
     }
     
     public function process_image($attachment_id, $context = array()) {
         $attachment = get_post($attachment_id);
         
         if (!$attachment || !wp_attachment_is_image($attachment_id)) {
-            return new WP_Error('invalid_attachment', __('Invalid image attachment.', 'ai-alt-text-generator'));
+            return new WP_Error('invalid_attachment', __('Invalid image attachment.', 'smartpics'));
         }
         
         $image_path = get_attached_file($attachment_id);
         if (!file_exists($image_path)) {
-            return new WP_Error('file_not_found', __('Image file not found.', 'ai-alt-text-generator'));
+            return new WP_Error('file_not_found', __('Image file not found.', 'smartpics'));
         }
         
         // Check if already processed
         if ($this->is_already_processed($attachment_id)) {
-            return new WP_Error('already_processed', __('Image already has alt text.', 'ai-alt-text-generator'));
+            return new WP_Error('already_processed', __('Image already has alt text.', 'smartpics'));
         }
         
         // Check similarity cache
@@ -81,7 +81,7 @@ class AIALT_Image_Processor {
                 $data['post_content'] = wp_strip_all_tags($post->post_content);
                 
                 // Get SEO data
-                $seo_integration = new AIALT_SEO_Integration();
+                $seo_integration = new SmartPics_SEO_Integration();
                 $data['focus_keyword'] = $seo_integration->get_focus_keyword($post_id);
                 
                 // Get content analysis
@@ -119,10 +119,10 @@ class AIALT_Image_Processor {
         }
         
         // Store metadata for analytics
-        update_post_meta($attachment_id, '_aialt_processed', true);
-        update_post_meta($attachment_id, '_aialt_provider', $result['provider'] ?? 'unknown');
-        update_post_meta($attachment_id, '_aialt_confidence', $result['confidence'] ?? 0);
-        update_post_meta($attachment_id, '_aialt_processed_date', current_time('mysql'));
+        update_post_meta($attachment_id, '_smartpics_processed', true);
+        update_post_meta($attachment_id, '_smartpics_provider', $result['provider'] ?? 'unknown');
+        update_post_meta($attachment_id, '_smartpics_confidence', $result['confidence'] ?? 0);
+        update_post_meta($attachment_id, '_smartpics_processed_date', current_time('mysql'));
     }
     
     public function bulk_process($limit = 50, $offset = 0) {

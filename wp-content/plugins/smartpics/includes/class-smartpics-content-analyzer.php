@@ -4,10 +4,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Content_Analyzer {
+class SmartPics_Content_Analyzer {
     
     public function analyze_content($post_id) {
-        $cached_analysis = AIALT_Database::get_content_analysis($post_id);
+        $cached_analysis = SmartPics_Database::get_content_analysis($post_id);
         
         if ($cached_analysis && $this->is_analysis_fresh($cached_analysis)) {
             return array(
@@ -28,7 +28,7 @@ class AIALT_Content_Analyzer {
         $analysis = $this->perform_analysis($content);
         
         // Cache the results
-        AIALT_Database::save_content_analysis($post_id, $analysis);
+        SmartPics_Database::save_content_analysis($post_id, $analysis);
         
         return $analysis;
     }

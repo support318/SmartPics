@@ -4,13 +4,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Bulk_Processor {
+class SmartPics_Bulk_Processor {
     
     public function start_bulk_job() {
         $job_id = wp_generate_uuid4();
         
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_bulk_jobs';
+        $table_name = $wpdb->prefix . 'smartpics_bulk_jobs';
         
         $wpdb->insert(
             $table_name,
@@ -28,7 +28,7 @@ class AIALT_Bulk_Processor {
     
     public function get_job_progress($job_id) {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_bulk_jobs';
+        $table_name = $wpdb->prefix . 'smartpics_bulk_jobs';
         
         return $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table_name WHERE id = %s",

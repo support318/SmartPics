@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_SEO_Integration {
+class SmartPics_SEO_Integration {
     
     public function get_focus_keyword($post_id) {
         // Try RankMath first

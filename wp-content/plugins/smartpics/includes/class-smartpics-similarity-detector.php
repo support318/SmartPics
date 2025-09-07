@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Similarity_Detector {
+class SmartPics_Similarity_Detector {
     
     public function generate_hash($image_path) {
         if (!file_exists($image_path)) {
@@ -108,7 +108,7 @@ class AIALT_Similarity_Detector {
     
     public function find_similar_images($target_hash, $threshold = 0.85) {
         global $wpdb;
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         // Get all cached hashes for comparison
         $cached_hashes = $wpdb->get_results("

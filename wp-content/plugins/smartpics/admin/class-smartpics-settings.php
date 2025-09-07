@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Settings {
+class SmartPics_Settings {
     
     private $settings_sections = array();
     private $settings_fields = array();
@@ -15,8 +15,8 @@ class AIALT_Settings {
     
     public function admin_init() {
         register_setting(
-            'aialt_settings_group',
-            'aialt_settings',
+            'smartpics_settings_group',
+            'smartpics_settings',
             array($this, 'sanitize_settings')
         );
         
@@ -29,32 +29,32 @@ class AIALT_Settings {
     private function setup_settings_sections() {
         $this->settings_sections = array(
             'ai_providers' => array(
-                'title' => __('AI Providers', 'ai-alt-text-generator'),
-                'description' => __('Configure your AI provider API keys and settings. At least one provider is required.', 'ai-alt-text-generator')
+                'title' => __('AI Providers', 'smartpics'),
+                'description' => __('Configure your AI provider API keys and settings. At least one provider is required.', 'smartpics')
             ),
             'cloudflare' => array(
-                'title' => __('Cloudflare Integration', 'ai-alt-text-generator'),
-                'description' => __('Configure Cloudflare R2 storage and Workers for image processing.', 'ai-alt-text-generator')
+                'title' => __('Cloudflare Integration', 'smartpics'),
+                'description' => __('Configure Cloudflare R2 storage and Workers for image processing.', 'smartpics')
             ),
             'content_analysis' => array(
-                'title' => __('Content Analysis', 'ai-alt-text-generator'),
-                'description' => __('Settings for content context analysis and topic modeling.', 'ai-alt-text-generator')
+                'title' => __('Content Analysis', 'smartpics'),
+                'description' => __('Settings for content context analysis and topic modeling.', 'smartpics')
             ),
             'seo_integration' => array(
-                'title' => __('SEO Integration', 'ai-alt-text-generator'),
-                'description' => __('Integration settings for SEO plugins and schema markup.', 'ai-alt-text-generator')
+                'title' => __('SEO Integration', 'smartpics'),
+                'description' => __('Integration settings for SEO plugins and schema markup.', 'smartpics')
             ),
             'geotargeting' => array(
-                'title' => __('Geotargeting', 'ai-alt-text-generator'),
-                'description' => __('Google My Business integration for location-aware content.', 'ai-alt-text-generator')
+                'title' => __('Geotargeting', 'smartpics'),
+                'description' => __('Google My Business integration for location-aware content.', 'smartpics')
             ),
             'performance' => array(
-                'title' => __('Performance & Caching', 'ai-alt-text-generator'),
-                'description' => __('Optimize performance with caching and similarity detection.', 'ai-alt-text-generator')
+                'title' => __('Performance & Caching', 'smartpics'),
+                'description' => __('Optimize performance with caching and similarity detection.', 'smartpics')
             ),
             'advanced' => array(
-                'title' => __('Advanced Settings', 'ai-alt-text-generator'),
-                'description' => __('Advanced configuration options for power users.', 'ai-alt-text-generator')
+                'title' => __('Advanced Settings', 'smartpics'),
+                'description' => __('Advanced configuration options for power users.', 'smartpics')
             )
         );
     }
@@ -64,268 +64,268 @@ class AIALT_Settings {
             // AI Providers Section
             'ai_providers' => array(
                 'primary_ai_provider' => array(
-                    'title' => __('Primary AI Provider', 'ai-alt-text-generator'),
+                    'title' => __('Primary AI Provider', 'smartpics'),
                     'type' => 'select',
                     'options' => array(
-                        'vertex_ai' => __('Google Vertex AI (Gemini Pro Vision)', 'ai-alt-text-generator'),
-                        'openai' => __('OpenAI GPT-4 Vision', 'ai-alt-text-generator'),
-                        'claude' => __('Anthropic Claude 3 Vision', 'ai-alt-text-generator')
+                        'vertex_ai' => __('Google Vertex AI (Gemini Pro Vision)', 'smartpics'),
+                        'openai' => __('OpenAI GPT-4 Vision', 'smartpics'),
+                        'claude' => __('Anthropic Claude 3 Vision', 'smartpics')
                     ),
                     'default' => 'vertex_ai',
-                    'description' => __('Select your primary AI provider for image analysis.', 'ai-alt-text-generator')
+                    'description' => __('Select your primary AI provider for image analysis.', 'smartpics')
                 ),
                 'fallback_providers' => array(
-                    'title' => __('Fallback Providers', 'ai-alt-text-generator'),
+                    'title' => __('Fallback Providers', 'smartpics'),
                     'type' => 'multiselect',
                     'options' => array(
-                        'vertex_ai' => __('Google Vertex AI', 'ai-alt-text-generator'),
-                        'openai' => __('OpenAI GPT-4V', 'ai-alt-text-generator'),
-                        'claude' => __('Anthropic Claude 3', 'ai-alt-text-generator')
+                        'vertex_ai' => __('Google Vertex AI', 'smartpics'),
+                        'openai' => __('OpenAI GPT-4V', 'smartpics'),
+                        'claude' => __('Anthropic Claude 3', 'smartpics')
                     ),
                     'default' => array('openai', 'claude'),
-                    'description' => __('Select fallback providers in case the primary provider fails.', 'ai-alt-text-generator')
+                    'description' => __('Select fallback providers in case the primary provider fails.', 'smartpics')
                 ),
                 'vertex_ai_project_id' => array(
-                    'title' => __('Vertex AI Project ID', 'ai-alt-text-generator'),
+                    'title' => __('Vertex AI Project ID', 'smartpics'),
                     'type' => 'text',
-                    'description' => __('Your Google Cloud Project ID for Vertex AI access.', 'ai-alt-text-generator')
+                    'description' => __('Your Google Cloud Project ID for Vertex AI access.', 'smartpics')
                 ),
                 'vertex_ai_location' => array(
-                    'title' => __('Vertex AI Location', 'ai-alt-text-generator'),
+                    'title' => __('Vertex AI Location', 'smartpics'),
                     'type' => 'select',
                     'options' => array(
-                        'us-central1' => __('US Central (Iowa)', 'ai-alt-text-generator'),
-                        'us-east1' => __('US East (South Carolina)', 'ai-alt-text-generator'),
-                        'us-west1' => __('US West (Oregon)', 'ai-alt-text-generator'),
-                        'europe-west1' => __('Europe West (Belgium)', 'ai-alt-text-generator'),
-                        'asia-northeast1' => __('Asia Northeast (Tokyo)', 'ai-alt-text-generator')
+                        'us-central1' => __('US Central (Iowa)', 'smartpics'),
+                        'us-east1' => __('US East (South Carolina)', 'smartpics'),
+                        'us-west1' => __('US West (Oregon)', 'smartpics'),
+                        'europe-west1' => __('Europe West (Belgium)', 'smartpics'),
+                        'asia-northeast1' => __('Asia Northeast (Tokyo)', 'smartpics')
                     ),
                     'default' => 'us-central1',
-                    'description' => __('Select the region for your Vertex AI API calls.', 'ai-alt-text-generator')
+                    'description' => __('Select the region for your Vertex AI API calls.', 'smartpics')
                 ),
                 'vertex_ai_api_key' => array(
-                    'title' => __('Vertex AI API Key', 'ai-alt-text-generator'),
+                    'title' => __('Vertex AI API Key', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('Your Google Cloud API key with Vertex AI permissions.', 'ai-alt-text-generator')
+                    'description' => __('Your Google Cloud API key with Vertex AI permissions.', 'smartpics')
                 ),
                 'openai_api_key' => array(
-                    'title' => __('OpenAI API Key', 'ai-alt-text-generator'),
+                    'title' => __('OpenAI API Key', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('Your OpenAI API key for GPT-4 Vision access.', 'ai-alt-text-generator')
+                    'description' => __('Your OpenAI API key for GPT-4 Vision access.', 'smartpics')
                 ),
                 'claude_api_key' => array(
-                    'title' => __('Anthropic API Key', 'ai-alt-text-generator'),
+                    'title' => __('Anthropic API Key', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('Your Anthropic API key for Claude 3 Vision access.', 'ai-alt-text-generator')
+                    'description' => __('Your Anthropic API key for Claude 3 Vision access.', 'smartpics')
                 )
             ),
             
             // Cloudflare Section
             'cloudflare' => array(
                 'cloudflare_account_id' => array(
-                    'title' => __('Cloudflare Account ID', 'ai-alt-text-generator'),
+                    'title' => __('Cloudflare Account ID', 'smartpics'),
                     'type' => 'text',
-                    'description' => __('Your Cloudflare account ID for R2 and Workers access.', 'ai-alt-text-generator')
+                    'description' => __('Your Cloudflare account ID for R2 and Workers access.', 'smartpics')
                 ),
                 'cloudflare_api_token' => array(
-                    'title' => __('Cloudflare API Token', 'ai-alt-text-generator'),
+                    'title' => __('Cloudflare API Token', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('API token with permissions for R2 and Workers.', 'ai-alt-text-generator')
+                    'description' => __('API token with permissions for R2 and Workers.', 'smartpics')
                 ),
                 'r2_bucket_name' => array(
-                    'title' => __('R2 Bucket Name', 'ai-alt-text-generator'),
+                    'title' => __('R2 Bucket Name', 'smartpics'),
                     'type' => 'text',
-                    'description' => __('Name of your R2 bucket for image storage.', 'ai-alt-text-generator')
+                    'description' => __('Name of your R2 bucket for image storage.', 'smartpics')
                 ),
                 'r2_access_key_id' => array(
-                    'title' => __('R2 Access Key ID', 'ai-alt-text-generator'),
+                    'title' => __('R2 Access Key ID', 'smartpics'),
                     'type' => 'text',
-                    'description' => __('R2 access key ID for S3-compatible API access.', 'ai-alt-text-generator')
+                    'description' => __('R2 access key ID for S3-compatible API access.', 'smartpics')
                 ),
                 'r2_secret_access_key' => array(
-                    'title' => __('R2 Secret Access Key', 'ai-alt-text-generator'),
+                    'title' => __('R2 Secret Access Key', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('R2 secret access key for S3-compatible API access.', 'ai-alt-text-generator')
+                    'description' => __('R2 secret access key for S3-compatible API access.', 'smartpics')
                 ),
                 'workers_endpoint' => array(
-                    'title' => __('Workers API Endpoint', 'ai-alt-text-generator'),
+                    'title' => __('Workers API Endpoint', 'smartpics'),
                     'type' => 'url',
-                    'description' => __('URL endpoint for your Cloudflare Worker.', 'ai-alt-text-generator')
+                    'description' => __('URL endpoint for your Cloudflare Worker.', 'smartpics')
                 )
             ),
             
             // Content Analysis Section
             'content_analysis' => array(
                 'enable_content_analysis' => array(
-                    'title' => __('Enable Content Analysis', 'ai-alt-text-generator'),
+                    'title' => __('Enable Content Analysis', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Analyze surrounding content to improve alt text relevance.', 'ai-alt-text-generator')
+                    'description' => __('Analyze surrounding content to improve alt text relevance.', 'smartpics')
                 ),
                 'content_analysis_depth' => array(
-                    'title' => __('Content Analysis Depth', 'ai-alt-text-generator'),
+                    'title' => __('Content Analysis Depth', 'smartpics'),
                     'type' => 'select',
                     'options' => array(
-                        'paragraph' => __('Current paragraph only', 'ai-alt-text-generator'),
-                        'section' => __('Current section', 'ai-alt-text-generator'),
-                        'full_page' => __('Full page content', 'ai-alt-text-generator')
+                        'paragraph' => __('Current paragraph only', 'smartpics'),
+                        'section' => __('Current section', 'smartpics'),
+                        'full_page' => __('Full page content', 'smartpics')
                     ),
                     'default' => 'section',
-                    'description' => __('How much surrounding content to analyze for context.', 'ai-alt-text-generator')
+                    'description' => __('How much surrounding content to analyze for context.', 'smartpics')
                 ),
                 'topic_modeling_enabled' => array(
-                    'title' => __('Enable Topic Modeling', 'ai-alt-text-generator'),
+                    'title' => __('Enable Topic Modeling', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Use AI to identify page topics for better context.', 'ai-alt-text-generator')
+                    'description' => __('Use AI to identify page topics for better context.', 'smartpics')
                 ),
                 'sentiment_analysis' => array(
-                    'title' => __('Enable Sentiment Analysis', 'ai-alt-text-generator'),
+                    'title' => __('Enable Sentiment Analysis', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => false,
-                    'description' => __('Analyze content sentiment to match alt text tone.', 'ai-alt-text-generator')
+                    'description' => __('Analyze content sentiment to match alt text tone.', 'smartpics')
                 )
             ),
             
             // SEO Integration Section
             'seo_integration' => array(
                 'enable_schema_generation' => array(
-                    'title' => __('Enable Schema Markup', 'ai-alt-text-generator'),
+                    'title' => __('Enable Schema Markup', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Automatically generate JSON-LD schema markup for images.', 'ai-alt-text-generator')
+                    'description' => __('Automatically generate JSON-LD schema markup for images.', 'smartpics')
                 ),
                 'schema_types' => array(
-                    'title' => __('Schema Types', 'ai-alt-text-generator'),
+                    'title' => __('Schema Types', 'smartpics'),
                     'type' => 'multiselect',
                     'options' => array(
-                        'ImageObject' => __('Image Object', 'ai-alt-text-generator'),
-                        'Product' => __('Product Images', 'ai-alt-text-generator'),
-                        'Article' => __('Article Images', 'ai-alt-text-generator'),
-                        'Organization' => __('Organization Logo', 'ai-alt-text-generator'),
-                        'CreativeWork' => __('Creative Work', 'ai-alt-text-generator')
+                        'ImageObject' => __('Image Object', 'smartpics'),
+                        'Product' => __('Product Images', 'smartpics'),
+                        'Article' => __('Article Images', 'smartpics'),
+                        'Organization' => __('Organization Logo', 'smartpics'),
+                        'CreativeWork' => __('Creative Work', 'smartpics')
                     ),
                     'default' => array('ImageObject', 'Product', 'Article'),
-                    'description' => __('Select which schema types to generate automatically.', 'ai-alt-text-generator')
+                    'description' => __('Select which schema types to generate automatically.', 'smartpics')
                 ),
                 'rankmath_integration' => array(
-                    'title' => __('RankMath Integration', 'ai-alt-text-generator'),
+                    'title' => __('RankMath Integration', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Integrate with RankMath SEO plugin for focus keywords.', 'ai-alt-text-generator')
+                    'description' => __('Integrate with RankMath SEO plugin for focus keywords.', 'smartpics')
                 ),
                 'yoast_integration' => array(
-                    'title' => __('Yoast SEO Integration', 'ai-alt-text-generator'),
+                    'title' => __('Yoast SEO Integration', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Integrate with Yoast SEO plugin for focus keywords.', 'ai-alt-text-generator')
+                    'description' => __('Integrate with Yoast SEO plugin for focus keywords.', 'smartpics')
                 )
             ),
             
             // Geotargeting Section
             'geotargeting' => array(
                 'enable_geotargeting' => array(
-                    'title' => __('Enable Geotargeting', 'ai-alt-text-generator'),
+                    'title' => __('Enable Geotargeting', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => false,
-                    'description' => __('Enable location-aware content generation using Google My Business.', 'ai-alt-text-generator')
+                    'description' => __('Enable location-aware content generation using Google My Business.', 'smartpics')
                 ),
                 'gmb_api_key' => array(
-                    'title' => __('Google My Business API Key', 'ai-alt-text-generator'),
+                    'title' => __('Google My Business API Key', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('API key for Google My Business integration.', 'ai-alt-text-generator')
+                    'description' => __('API key for Google My Business integration.', 'smartpics')
                 ),
                 'vector_db_provider' => array(
-                    'title' => __('Vector Database Provider', 'ai-alt-text-generator'),
+                    'title' => __('Vector Database Provider', 'smartpics'),
                     'type' => 'select',
                     'options' => array(
-                        'pinecone' => __('Pinecone', 'ai-alt-text-generator'),
-                        'milvus' => __('Milvus', 'ai-alt-text-generator'),
-                        'weaviate' => __('Weaviate', 'ai-alt-text-generator')
+                        'pinecone' => __('Pinecone', 'smartpics'),
+                        'milvus' => __('Milvus', 'smartpics'),
+                        'weaviate' => __('Weaviate', 'smartpics')
                     ),
                     'default' => 'pinecone',
-                    'description' => __('Choose your vector database provider for geotargeting.', 'ai-alt-text-generator')
+                    'description' => __('Choose your vector database provider for geotargeting.', 'smartpics')
                 ),
                 'vector_db_url' => array(
-                    'title' => __('Vector Database URL', 'ai-alt-text-generator'),
+                    'title' => __('Vector Database URL', 'smartpics'),
                     'type' => 'url',
-                    'description' => __('Connection URL for your vector database.', 'ai-alt-text-generator')
+                    'description' => __('Connection URL for your vector database.', 'smartpics')
                 ),
                 'vector_db_api_key' => array(
-                    'title' => __('Vector Database API Key', 'ai-alt-text-generator'),
+                    'title' => __('Vector Database API Key', 'smartpics'),
                     'type' => 'password',
-                    'description' => __('API key for vector database access.', 'ai-alt-text-generator')
+                    'description' => __('API key for vector database access.', 'smartpics')
                 )
             ),
             
             // Performance Section
             'performance' => array(
                 'enable_caching' => array(
-                    'title' => __('Enable AI Response Caching', 'ai-alt-text-generator'),
+                    'title' => __('Enable AI Response Caching', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Cache AI responses to reduce costs and improve performance.', 'ai-alt-text-generator')
+                    'description' => __('Cache AI responses to reduce costs and improve performance.', 'smartpics')
                 ),
                 'cache_duration' => array(
-                    'title' => __('Cache Duration (days)', 'ai-alt-text-generator'),
+                    'title' => __('Cache Duration (days)', 'smartpics'),
                     'type' => 'number',
                     'default' => 30,
                     'min' => 1,
                     'max' => 365,
-                    'description' => __('How long to keep cached responses (1-365 days).', 'ai-alt-text-generator')
+                    'description' => __('How long to keep cached responses (1-365 days).', 'smartpics')
                 ),
                 'enable_similarity_detection' => array(
-                    'title' => __('Enable Similarity Detection', 'ai-alt-text-generator'),
+                    'title' => __('Enable Similarity Detection', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Use perceptual hashing to detect similar images and reuse alt text.', 'ai-alt-text-generator')
+                    'description' => __('Use perceptual hashing to detect similar images and reuse alt text.', 'smartpics')
                 ),
                 'similarity_threshold' => array(
-                    'title' => __('Similarity Threshold', 'ai-alt-text-generator'),
+                    'title' => __('Similarity Threshold', 'smartpics'),
                     'type' => 'range',
                     'min' => 0.5,
                     'max' => 1.0,
                     'step' => 0.05,
                     'default' => 0.85,
-                    'description' => __('How similar images need to be to reuse alt text (0.5-1.0).', 'ai-alt-text-generator')
+                    'description' => __('How similar images need to be to reuse alt text (0.5-1.0).', 'smartpics')
                 ),
                 'batch_size' => array(
-                    'title' => __('Batch Processing Size', 'ai-alt-text-generator'),
+                    'title' => __('Batch Processing Size', 'smartpics'),
                     'type' => 'number',
                     'default' => 10,
                     'min' => 1,
                     'max' => 50,
-                    'description' => __('Number of images to process simultaneously (1-50).', 'ai-alt-text-generator')
+                    'description' => __('Number of images to process simultaneously (1-50).', 'smartpics')
                 )
             ),
             
             // Advanced Section
             'advanced' => array(
                 'auto_process' => array(
-                    'title' => __('Auto-Process New Images', 'ai-alt-text-generator'),
+                    'title' => __('Auto-Process New Images', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => true,
-                    'description' => __('Automatically process new images when uploaded.', 'ai-alt-text-generator')
+                    'description' => __('Automatically process new images when uploaded.', 'smartpics')
                 ),
                 'rate_limit' => array(
-                    'title' => __('API Rate Limit (requests/hour)', 'ai-alt-text-generator'),
+                    'title' => __('API Rate Limit (requests/hour)', 'smartpics'),
                     'type' => 'number',
                     'default' => 100,
                     'min' => 10,
                     'max' => 1000,
-                    'description' => __('Maximum API requests per hour across all providers.', 'ai-alt-text-generator')
+                    'description' => __('Maximum API requests per hour across all providers.', 'smartpics')
                 ),
                 'debug_mode' => array(
-                    'title' => __('Debug Mode', 'ai-alt-text-generator'),
+                    'title' => __('Debug Mode', 'smartpics'),
                     'type' => 'checkbox',
                     'default' => false,
-                    'description' => __('Enable detailed logging for troubleshooting.', 'ai-alt-text-generator')
+                    'description' => __('Enable detailed logging for troubleshooting.', 'smartpics')
                 ),
                 'custom_prompts' => array(
-                    'title' => __('Custom AI Prompts', 'ai-alt-text-generator'),
+                    'title' => __('Custom AI Prompts', 'smartpics'),
                     'type' => 'textarea',
                     'rows' => 5,
-                    'description' => __('Custom prompts for AI providers (JSON format). Leave empty for defaults.', 'ai-alt-text-generator')
+                    'description' => __('Custom prompts for AI providers (JSON format). Leave empty for defaults.', 'smartpics')
                 )
             )
         );
@@ -337,7 +337,7 @@ class AIALT_Settings {
                 $section_id,
                 $section['title'],
                 array($this, 'render_section_description'),
-                'aialt-settings'
+                'smartpics-settings'
             );
         }
     }
@@ -349,7 +349,7 @@ class AIALT_Settings {
                     $field_id,
                     $field['title'],
                     array($this, 'render_field'),
-                    'aialt-settings',
+                    'smartpics-settings',
                     $section_id,
                     array_merge($field, array('field_id' => $field_id, 'section_id' => $section_id))
                 );
@@ -365,10 +365,10 @@ class AIALT_Settings {
     }
     
     public function render_field($args) {
-        $settings = get_option('aialt_settings', array());
+        $settings = get_option('smartpics_settings', array());
         $field_id = $args['field_id'];
         $value = isset($settings[$field_id]) ? $settings[$field_id] : (isset($args['default']) ? $args['default'] : '');
-        $name = "aialt_settings[$field_id]";
+        $name = "smartpics_settings[$field_id]";
         
         switch ($args['type']) {
             case 'text':
@@ -427,16 +427,16 @@ class AIALT_Settings {
         }
         
         if ($args['type'] === 'password' && in_array($field_id, array('vertex_ai_api_key', 'openai_api_key', 'claude_api_key'))) {
-            echo '<button type="button" class="button aialt-test-connection" data-provider="' . esc_attr(str_replace('_api_key', '', $field_id)) . '">';
-            echo __('Test Connection', 'ai-alt-text-generator');
+            echo '<button type="button" class="button smartpics-test-connection" data-provider="' . esc_attr(str_replace('_api_key', '', $field_id)) . '">';
+            echo __('Test Connection', 'smartpics');
             echo '</button>';
-            echo '<span class="aialt-connection-status"></span>';
+            echo '<span class="smartpics-connection-status"></span>';
         }
     }
     
     public function sanitize_settings($input) {
         $sanitized = array();
-        $settings = get_option('aialt_settings', array());
+        $settings = get_option('smartpics_settings', array());
         
         foreach ($this->settings_fields as $section_id => $fields) {
             foreach ($fields as $field_id => $field) {

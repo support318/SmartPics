@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_Database {
+class SmartPics_Database {
     
     public static function create_tables() {
         global $wpdb;
@@ -13,7 +13,7 @@ class AIALT_Database {
         
         $tables = array(
             'processing_queue' => "
-                CREATE TABLE {$wpdb->prefix}aialt_processing_queue (
+                CREATE TABLE {$wpdb->prefix}smartpics_processing_queue (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     attachment_id bigint(20) UNSIGNED NOT NULL,
                     post_id bigint(20) UNSIGNED DEFAULT NULL,
@@ -34,7 +34,7 @@ class AIALT_Database {
             ",
             
             'image_cache' => "
-                CREATE TABLE {$wpdb->prefix}aialt_image_cache (
+                CREATE TABLE {$wpdb->prefix}smartpics_image_cache (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     image_hash varchar(64) NOT NULL,
                     similarity_hash varchar(64) NOT NULL,
@@ -58,7 +58,7 @@ class AIALT_Database {
             ",
             
             'content_analysis' => "
-                CREATE TABLE {$wpdb->prefix}aialt_content_analysis (
+                CREATE TABLE {$wpdb->prefix}smartpics_content_analysis (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     post_id bigint(20) UNSIGNED NOT NULL,
                     content_hash varchar(64) NOT NULL,
@@ -77,7 +77,7 @@ class AIALT_Database {
             ",
             
             'schema_markup' => "
-                CREATE TABLE {$wpdb->prefix}aialt_schema_markup (
+                CREATE TABLE {$wpdb->prefix}smartpics_schema_markup (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     post_id bigint(20) UNSIGNED NOT NULL,
                     attachment_id bigint(20) UNSIGNED DEFAULT NULL,
@@ -95,7 +95,7 @@ class AIALT_Database {
             ",
             
             'ai_provider_stats' => "
-                CREATE TABLE {$wpdb->prefix}aialt_ai_provider_stats (
+                CREATE TABLE {$wpdb->prefix}smartpics_ai_provider_stats (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     provider varchar(50) NOT NULL,
                     date date NOT NULL,
@@ -115,7 +115,7 @@ class AIALT_Database {
             ",
             
             'bulk_jobs' => "
-                CREATE TABLE {$wpdb->prefix}aialt_bulk_jobs (
+                CREATE TABLE {$wpdb->prefix}smartpics_bulk_jobs (
                     id varchar(36) NOT NULL,
                     user_id bigint(20) UNSIGNED NOT NULL,
                     status varchar(20) NOT NULL DEFAULT 'queued',
@@ -136,7 +136,7 @@ class AIALT_Database {
             ",
             
             'geotargeting_data' => "
-                CREATE TABLE {$wpdb->prefix}aialt_geotargeting_data (
+                CREATE TABLE {$wpdb->prefix}smartpics_geotargeting_data (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     business_id varchar(255) NOT NULL,
                     business_name varchar(255) NOT NULL,
@@ -159,7 +159,7 @@ class AIALT_Database {
             ",
             
             'similarity_clusters' => "
-                CREATE TABLE {$wpdb->prefix}aialt_similarity_clusters (
+                CREATE TABLE {$wpdb->prefix}smartpics_similarity_clusters (
                     id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                     cluster_id varchar(64) NOT NULL,
                     representative_hash varchar(64) NOT NULL,
@@ -189,12 +189,12 @@ class AIALT_Database {
         
         $indexes = array(
             // Composite indexes for common queries
-            "CREATE INDEX idx_queue_status_priority ON {$wpdb->prefix}aialt_processing_queue (status, priority, created_at)",
-            "CREATE INDEX idx_cache_similarity_expires ON {$wpdb->prefix}aialt_image_cache (similarity_hash, expires_at)",
-            "CREATE INDEX idx_content_post_updated ON {$wpdb->prefix}aialt_content_analysis (post_id, updated_at)",
-            "CREATE INDEX idx_schema_post_type_active ON {$wpdb->prefix}aialt_schema_markup (post_id, schema_type, is_active)",
-            "CREATE INDEX idx_stats_provider_date ON {$wpdb->prefix}aialt_ai_provider_stats (provider, date DESC)",
-            "CREATE INDEX idx_bulk_user_status ON {$wpdb->prefix}aialt_bulk_jobs (user_id, status, created_at DESC)"
+            "CREATE INDEX idx_queue_status_priority ON {$wpdb->prefix}smartpics_processing_queue (status, priority, created_at)",
+            "CREATE INDEX idx_cache_similarity_expires ON {$wpdb->prefix}smartpics_image_cache (similarity_hash, expires_at)",
+            "CREATE INDEX idx_content_post_updated ON {$wpdb->prefix}smartpics_content_analysis (post_id, updated_at)",
+            "CREATE INDEX idx_schema_post_type_active ON {$wpdb->prefix}smartpics_schema_markup (post_id, schema_type, is_active)",
+            "CREATE INDEX idx_stats_provider_date ON {$wpdb->prefix}smartpics_ai_provider_stats (provider, date DESC)",
+            "CREATE INDEX idx_bulk_user_status ON {$wpdb->prefix}smartpics_bulk_jobs (user_id, status, created_at DESC)"
         );
         
         foreach ($indexes as $index_sql) {
@@ -205,7 +205,7 @@ class AIALT_Database {
     public static function get_processing_queue_count($status = null) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_processing_queue';
+        $table_name = $wpdb->prefix . 'smartpics_processing_queue';
         
         if ($status) {
             return $wpdb->get_var($wpdb->prepare(
@@ -220,7 +220,7 @@ class AIALT_Database {
     public static function get_cache_statistics() {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         return $wpdb->get_row("
             SELECT 
@@ -235,7 +235,7 @@ class AIALT_Database {
     public static function cleanup_expired_cache() {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         return $wpdb->query("
             DELETE FROM $table_name 
@@ -246,7 +246,7 @@ class AIALT_Database {
     public static function get_provider_statistics($days = 30) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_ai_provider_stats';
+        $table_name = $wpdb->prefix . 'smartpics_ai_provider_stats';
         
         return $wpdb->get_results($wpdb->prepare("
             SELECT 
@@ -268,7 +268,7 @@ class AIALT_Database {
     public static function log_provider_request($provider, $success = true, $tokens = 0, $cost = 0, $response_time = 0) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_ai_provider_stats';
+        $table_name = $wpdb->prefix . 'smartpics_ai_provider_stats';
         $today = current_time('Y-m-d');
         
         $existing = $wpdb->get_row($wpdb->prepare(
@@ -318,7 +318,7 @@ class AIALT_Database {
     public static function get_content_analysis($post_id) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_content_analysis';
+        $table_name = $wpdb->prefix . 'smartpics_content_analysis';
         
         return $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table_name WHERE post_id = %d ORDER BY updated_at DESC LIMIT 1",
@@ -329,7 +329,7 @@ class AIALT_Database {
     public static function save_content_analysis($post_id, $data) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_content_analysis';
+        $table_name = $wpdb->prefix . 'smartpics_content_analysis';
         $content_hash = md5(serialize($data));
         
         $existing = $wpdb->get_row($wpdb->prepare(
@@ -369,7 +369,7 @@ class AIALT_Database {
     public static function get_similar_images($similarity_hash, $threshold = 0.85) {
         global $wpdb;
         
-        $table_name = $wpdb->prefix . 'aialt_image_cache';
+        $table_name = $wpdb->prefix . 'smartpics_image_cache';
         
         return $wpdb->get_results($wpdb->prepare("
             SELECT *, 

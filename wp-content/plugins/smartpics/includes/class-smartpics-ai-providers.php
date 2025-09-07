@@ -4,13 +4,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class AIALT_AI_Providers {
+class SmartPics_AI_Providers {
     
     private $settings;
     private $providers = array();
     
     public function __construct() {
-        $this->settings = get_option('aialt_settings', array());
+        $this->settings = get_option('smartpics_settings', array());
         $this->initialize_providers();
     }
     
@@ -78,7 +78,7 @@ class AIALT_AI_Providers {
                 if ($result && !is_wp_error($result)) {
                     $response_time = round((microtime(true) - $start_time) * 1000);
                     
-                    AIALT_Database::log_provider_request(
+                    SmartPics_Database::log_provider_request(
                         $provider_id,
                         true,
                         $result['token_usage'] ?? 0,
@@ -95,15 +95,15 @@ class AIALT_AI_Providers {
                 $response_time = round((microtime(true) - $start_time) * 1000);
                 $last_error = $e->getMessage();
                 
-                AIALT_Database::log_provider_request($provider_id, false, 0, 0, $response_time);
+                SmartPics_Database::log_provider_request($provider_id, false, 0, 0, $response_time);
                 
-                error_log("AI Alt Text Generator: {$provider_id} failed - " . $e->getMessage());
+                error_log("SmartPics: {$provider_id} failed - " . $e->getMessage());
                 continue;
             }
         }
         
         return new WP_Error('all_providers_failed', 
-            sprintf(__('All AI providers failed. Last error: %s', 'ai-alt-text-generator'), $last_error)
+            sprintf(__('All AI providers failed. Last error: %s', 'smartpics'), $last_error)
         );
     }
     
@@ -450,7 +450,7 @@ class AIALT_AI_Providers {
         }
         
         try {
-            $test_image_path = AIALT_PLUGIN_PATH . 'assets/images/test-image.jpg';
+            $test_image_path = SMARTPICS_PLUGIN_PATH . 'assets/images/test-image.jpg';
             
             if (!file_exists($test_image_path)) {
                 $test_image_data = base64_decode('/9j/4AAQSkZJRgABAQEAYABgAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gODUK/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg0NDhQUExMTExQUFhQUGh0aGhsUFhoYICMgGxoXLiMiFxcXKhceEhwfFBof/8AACwgAAAIABAEiEQMRAD8A5Vv7y5v725ubu6uJ7u7uJZbm6uJGaSSaVy7yyOxLMxYksTySa+o');
