@@ -1,0 +1,736 @@
+/* SmartPics Pro Admin Styles - Enhanced UI */
+
+:root {
+    --smartpics-primary: #2563eb;
+    --smartpics-primary-light: #3b82f6;
+    --smartpics-primary-dark: #1d4ed8;
+    --smartpics-secondary: #64748b;
+    --smartpics-success: #10b981;
+    --smartpics-warning: #f59e0b;
+    --smartpics-error: #ef4444;
+    --smartpics-purple: #8b5cf6;
+    --smartpics-indigo: #6366f1;
+    --smartpics-pink: #ec4899;
+    --smartpics-turquoise: #06b6d4;
+    
+    --smartpics-gray-50: #f8fafc;
+    --smartpics-gray-100: #f1f5f9;
+    --smartpics-gray-200: #e2e8f0;
+    --smartpics-gray-300: #cbd5e1;
+    --smartpics-gray-400: #94a3b8;
+    --smartpics-gray-500: #64748b;
+    --smartpics-gray-600: #475569;
+    --smartpics-gray-700: #334155;
+    --smartpics-gray-800: #1e293b;
+    --smartpics-gray-900: #0f172a;
+    
+    --smartpics-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --smartpics-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --smartpics-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --smartpics-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --smartpics-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    --smartpics-radius-sm: 0.25rem;
+    --smartpics-radius: 0.5rem;
+    --smartpics-radius-md: 0.75rem;
+    --smartpics-radius-lg: 1rem;
+    --smartpics-radius-xl: 1.5rem;
+}
+
+/* Enhanced Admin Layout */
+.smartpics-admin-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: var(--smartpics-gray-50);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.smartpics-header {
+    background: linear-gradient(135deg, var(--smartpics-primary) 0%, var(--smartpics-indigo) 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    margin: 0 0 2rem -20px;
+    margin-right: -20px;
+    box-shadow: var(--smartpics-shadow-lg);
+}
+
+.smartpics-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.smartpics-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.smartpics-logo .dashicons {
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.smartpics-logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.version-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: var(--smartpics-radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+/* Enhanced Stats Grid */
+.smartpics-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.smartpics-stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--smartpics-radius-lg);
+    box-shadow: var(--smartpics-shadow);
+    text-align: center;
+    border: 1px solid var(--smartpics-gray-200);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.smartpics-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--smartpics-primary), var(--smartpics-indigo));
+}
+
+.smartpics-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--smartpics-shadow-lg);
+}
+
+.smartpics-stat-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--smartpics-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.smartpics-stat-label {
+    font-size: 0.875rem;
+    color: var(--smartpics-gray-600);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Enhanced Card Components */
+.smartpics-card {
+    background: white;
+    border-radius: var(--smartpics-radius-lg);
+    box-shadow: var(--smartpics-shadow);
+    border: 1px solid var(--smartpics-gray-200);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.smartpics-card h2,
+.smartpics-card h3 {
+    color: var(--smartpics-gray-800);
+    margin-top: 0;
+    padding: 2rem 2rem 0;
+}
+
+.smartpics-card > p {
+    padding: 0 2rem;
+    color: var(--smartpics-gray-600);
+    line-height: 1.6;
+}
+
+.smartpics-feature-list {
+    padding: 0 2rem 1rem;
+    margin: 0;
+}
+
+.smartpics-feature-list li {
+    padding: 0.5rem 0;
+    color: var(--smartpics-gray-700);
+    line-height: 1.5;
+}
+
+.smartpics-quick-actions {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Tab Navigation */
+.smartpics-tab-navigation {
+    max-width: 1200px;
+    margin: -1rem auto 2rem;
+    padding: 0 2rem;
+}
+
+.smartpics-nav-tab-wrapper {
+    border: none;
+    background: white;
+    border-radius: var(--smartpics-radius-lg);
+    box-shadow: var(--smartpics-shadow);
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+}
+
+.smartpics-nav-tab-wrapper .nav-tab {
+    background: transparent;
+    border: none;
+    color: var(--smartpics-gray-600);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--smartpics-radius);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.smartpics-nav-tab-wrapper .nav-tab:hover {
+    background: var(--smartpics-gray-100);
+    color: var(--smartpics-primary);
+}
+
+.smartpics-nav-tab-wrapper .nav-tab-active,
+.smartpics-nav-tab-wrapper .nav-tab-active:hover {
+    background: var(--smartpics-primary);
+    color: white;
+    box-shadow: var(--smartpics-shadow);
+}
+
+/* Settings Form Enhancements */
+.smartpics-tab-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.smartpics-settings-form {
+    background: white;
+    border-radius: var(--smartpics-radius-lg);
+    box-shadow: var(--smartpics-shadow);
+    border: 1px solid var(--smartpics-gray-200);
+    overflow: hidden;
+}
+
+.smartpics-settings-section {
+    padding: 2rem;
+    border-bottom: 1px solid var(--smartpics-gray-200);
+}
+
+.smartpics-settings-section:last-child {
+    border-bottom: none;
+}
+
+.smartpics-settings-section h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--smartpics-gray-800);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.smartpics-settings-section h4 {
+    margin: 2rem 0 1rem;
+    color: var(--smartpics-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.smartpics-settings-section .description {
+    color: var(--smartpics-gray-600);
+    margin-bottom: 1.5rem;
+    font-style: normal;
+}
+
+/* Form Controls */
+.smartpics-file-extensions,
+.smartpics-output-formats,
+.smartpics-conversion-method,
+.smartpics-loading-modes,
+.smartpics-checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.smartpics-file-extensions label,
+.smartpics-output-formats label,
+.smartpics-conversion-method label,
+.smartpics-loading-modes label,
+.smartpics-checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--smartpics-gray-50);
+    border-radius: var(--smartpics-radius);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.smartpics-file-extensions label:hover,
+.smartpics-output-formats label:hover,
+.smartpics-conversion-method label:hover,
+.smartpics-loading-modes label:hover,
+.smartpics-checkbox-group label:hover {
+    background: var(--smartpics-gray-100);
+    border-color: var(--smartpics-primary);
+}
+
+.smartpics-file-extensions input:checked + label,
+.smartpics-output-formats input:checked + label,
+.smartpics-conversion-method input:checked + label,
+.smartpics-loading-modes input:checked + label,
+.smartpics-checkbox-group input:checked + label {
+    background: var(--smartpics-primary-light);
+    color: white;
+    border-color: var(--smartpics-primary);
+}
+
+/* Range Sliders */
+.smartpics-range-slider {
+    width: 100%;
+    margin: 0.5rem 0;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--smartpics-gray-200);
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.smartpics-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--smartpics-primary);
+    cursor: pointer;
+    box-shadow: var(--smartpics-shadow);
+    transition: all 0.3s ease;
+}
+
+.smartpics-range-slider::-webkit-slider-thumb:hover {
+    background: var(--smartpics-primary-dark);
+    transform: scale(1.1);
+}
+
+.smartpics-range-value {
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--smartpics-primary);
+    margin-left: 1rem;
+}
+
+/* Info Boxes */
+.smartpics-info-box {
+    background: linear-gradient(135deg, var(--smartpics-primary-light), var(--smartpics-indigo));
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--smartpics-radius);
+    margin: 1.5rem 0;
+}
+
+.smartpics-info-box p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Bulk Processing Enhancements */
+.smartpics-bulk-processing {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.smartpics-bulk-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.smartpics-bulk-stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--smartpics-gray-50);
+    border-radius: var(--smartpics-radius);
+    border: 1px solid var(--smartpics-gray-200);
+}
+
+.smartpics-bulk-stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--smartpics-primary);
+    margin-bottom: 0.5rem;
+}
+
+.smartpics-bulk-stat-label {
+    font-size: 0.875rem;
+    color: var(--smartpics-gray-600);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.smartpics-bulk-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.smartpics-progress-container {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--smartpics-gray-50);
+    border-radius: var(--smartpics-radius);
+    border: 1px solid var(--smartpics-gray-200);
+}
+
+.smartpics-progress-bar {
+    width: 100%;
+    height: 20px;
+    background: var(--smartpics-gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.smartpics-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--smartpics-primary), var(--smartpics-indigo));
+    width: 0%;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.smartpics-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
+    animation: smartpics-progress-shimmer 2s infinite;
+}
+
+@keyframes smartpics-progress-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.smartpics-progress-text {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--smartpics-primary);
+    margin-bottom: 0.5rem;
+}
+
+.smartpics-progress-details {
+    text-align: center;
+    color: var(--smartpics-gray-600);
+}
+
+/* Reconversion Stats */
+.smartpics-reconversion-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.smartpics-stat-circle {
+    text-align: center;
+    padding: 2rem;
+    background: var(--smartpics-gray-50);
+    border-radius: var(--smartpics-radius-lg);
+    border: 1px solid var(--smartpics-gray-200);
+    position: relative;
+}
+
+.smartpics-stat-circle .smartpics-stat-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--smartpics-primary);
+    margin-bottom: 1rem;
+}
+
+.smartpics-stat-circle .smartpics-stat-label {
+    font-size: 1rem;
+    color: var(--smartpics-gray-700);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.smartpics-stat-circle .smartpics-stat-count {
+    font-size: 0.875rem;
+    color: var(--smartpics-gray-500);
+}
+
+.smartpics-force-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--smartpics-warning);
+    color: white;
+    border-radius: var(--smartpics-radius);
+    font-weight: 500;
+}
+
+/* Enhanced Buttons */
+.button.button-primary,
+.smartpics-save-button {
+    background: linear-gradient(135deg, var(--smartpics-primary), var(--smartpics-indigo)) !important;
+    border: none !important;
+    color: white !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: var(--smartpics-radius) !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0.025em !important;
+    transition: all 0.3s ease !important;
+    box-shadow: var(--smartpics-shadow) !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+.button.button-primary:hover,
+.smartpics-save-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--smartpics-shadow-lg) !important;
+}
+
+.button.button-secondary {
+    background: white !important;
+    border: 2px solid var(--smartpics-gray-300) !important;
+    color: var(--smartpics-gray-700) !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: var(--smartpics-radius) !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+.button.button-secondary:hover {
+    border-color: var(--smartpics-primary) !important;
+    color: var(--smartpics-primary) !important;
+    transform: translateY(-1px) !important;
+}
+
+.button.button-hero {
+    font-size: 1.125rem !important;
+    padding: 1rem 2.5rem !important;
+}
+
+.smartpics-test-connection {
+    background: var(--smartpics-success) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--smartpics-radius) !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+}
+
+.smartpics-test-connection:hover {
+    background: var(--smartpics-success) !important;
+    opacity: 0.9 !important;
+}
+
+/* Connection Status */
+.smartpics-connection-status {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: var(--smartpics-radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.smartpics-connection-status.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--smartpics-success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.smartpics-connection-status.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--smartpics-error);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Form Footer */
+.smartpics-form-footer {
+    padding: 2rem;
+    background: var(--smartpics-gray-50);
+    border-top: 1px solid var(--smartpics-gray-200);
+    text-align: right;
+}
+
+/* Recent Activity */
+.smartpics-activity-list {
+    list-style: none;
+    padding: 2rem;
+    margin: 0;
+}
+
+.smartpics-activity-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--smartpics-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.smartpics-activity-list li:last-child {
+    border-bottom: none;
+}
+
+.smartpics-activity-date {
+    color: var(--smartpics-gray-500);
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .smartpics-header {
+        padding: 1.5rem 1rem 1rem;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
+    .smartpics-header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .smartpics-stats-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .smartpics-tab-content {
+        padding: 0 1rem;
+    }
+    
+    .smartpics-bulk-processing {
+        padding: 0 1rem;
+    }
+    
+    .smartpics-nav-tab-wrapper {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    
+    .smartpics-quick-actions,
+    .smartpics-bulk-controls {
+        flex-direction: column;
+    }
+    
+    .smartpics-file-extensions,
+    .smartpics-output-formats,
+    .smartpics-conversion-method,
+    .smartpics-loading-modes,
+    .smartpics-checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading States */
+.smartpics-loading {
+    position: relative;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.smartpics-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--smartpics-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: smartpics-spin 1s infinite linear;
+}
+
+@keyframes smartpics-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus Styles */
+.smartpics-admin-page *:focus {
+    outline: 2px solid var(--smartpics-primary);
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --smartpics-gray-50: #1e293b;
+        --smartpics-gray-100: #334155;
+        --smartpics-gray-200: #475569;
+        --smartpics-gray-300: #64748b;
+        --smartpics-gray-600: #e2e8f0;
+        --smartpics-gray-700: #f1f5f9;
+        --smartpics-gray-800: #f8fafc;
+    }
+}

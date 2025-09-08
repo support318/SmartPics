@@ -61,6 +61,7 @@ class SmartPics {
         
         // Load admin classes only in admin
         if (is_admin()) {
+            $this->safe_include('admin/class-smartpics-admin-enhanced.php');
             $this->safe_include('admin/class-smartpics-admin.php');
             $this->safe_include('admin/class-smartpics-settings.php');
             $this->safe_include('admin/class-smartpics-dashboard.php');
@@ -92,7 +93,11 @@ class SmartPics {
     }
     
     private function admin_init() {
-        new SmartPics_Admin();
+        if (class_exists('SmartPics_Admin_Enhanced')) {
+            new SmartPics_Admin_Enhanced();
+        } else {
+            new SmartPics_Admin();
+        }
     }
     
     private function public_init() {
