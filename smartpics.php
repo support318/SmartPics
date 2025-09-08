@@ -28,6 +28,8 @@ define('SMARTPICS_PLUGIN_BASENAME', plugin_basename(__FILE__));
 class SmartPics {
     
     private static $instance = null;
+    private $resource_safe = true;
+    private $loaded_components = array();
     
     public static function get_instance() {
         if (null === self::$instance) {
@@ -37,7 +39,15 @@ class SmartPics {
     }
     
     private function __construct() {
-        add_action('init', array($this, 'init'));
+        // Check resource constraints first
+        $this->resource_safe = $this->check_resource_safety();
+        
+        if (!$this->resource_safe) {
+            add_action('admin_notices', array($this, 'resource_warning'));
+            return; // Exit early to prevent resource overload
+        }
+        
+        add_action('init', array($this, 'init'), 20); // Lower priority to load after other plugins
         add_action('plugins_loaded', array($this, 'load_textdomain'));
         
         register_activation_hook(__FILE__, array($this, 'activate'));
@@ -45,6 +55,11 @@ class SmartPics {
     }
     
     public function init() {
+        // Double-check resource safety before loading components
+        if (!$this->resource_safe) {
+            return;
+        }
+        
         $this->includes();
         $this->init_hooks();
         
@@ -53,6 +68,59 @@ class SmartPics {
         }
         
         $this->public_init();
+    }
+    
+    private function check_resource_safety() {
+        // Check memory usage
+        $memory_limit = ini_get('memory_limit');
+        $memory_limit_bytes = $this->convert_to_bytes($memory_limit);
+        $memory_usage = memory_get_usage(true);
+        
+        // If using more than 60% of memory limit, it's not safe
+        if ($memory_usage > ($memory_limit_bytes * 0.6)) {
+            return false;
+        }
+        
+        // Check execution time limits (shared hosting usually has low limits)
+        $max_execution_time = ini_get('max_execution_time');
+        if ($max_execution_time > 0 && $max_execution_time < 90) {
+            return false; // Likely shared hosting
+        }
+        
+        // Check if we're in a resource-constrained environment
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            // Allow in debug mode for development
+            return true;
+        }
+        
+        // Check recent plugin activations (sign of development activity)
+        $recent_activations = get_option('recently_activated', array());
+        if (count($recent_activations) > 5) {
+            return false; // Too much recent activity
+        }
+        
+        return true;
+    }
+    
+    private function convert_to_bytes($value) {
+        $unit = strtolower(substr($value, -1, 1));
+        $value = (int) $value;
+        switch ($unit) {
+            case 'g': $value *= 1024;
+            case 'm': $value *= 1024;
+            case 'k': $value *= 1024;
+        }
+        return $value;
+    }
+    
+    public function resource_warning() {
+        ?>
+        <div class="notice notice-error">
+            <p><strong><?php _e('SmartPics Resource Protection', 'smartpics'); ?></strong></p>
+            <p><?php _e('SmartPics has detected resource constraints and disabled itself to prevent server overload. This is normal for shared hosting environments.', 'smartpics'); ?></p>
+            <p><?php _e('Consider using SmartPics Lite instead, or upgrade to a higher-performance hosting plan.', 'smartpics'); ?></p>
+        </div>
+        <?php
     }
     
     private function includes() {
