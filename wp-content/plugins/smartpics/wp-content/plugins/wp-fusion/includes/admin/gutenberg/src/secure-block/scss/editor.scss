@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/**
+ * Variables
+ **/
+$wp_fusion_color_primary: #6c2a22;
+$wp_fusion_color_gutenberg_grey: #f3f3f4;
+$wp_fusion_color_gutenberg_black: #32373c;
+
+/**
+ * Default Styles
+ *
+ * The default styles for the block in the editor.
+ */
+.wp-block-wp-fusion-secure-block {
+	&__footer {
+		background-color: $wp_fusion_color_gutenberg_grey;
+		color: $wp_fusion_color_gutenberg_black;
+		padding: 5px 10px 5px 10px;
+		font-size: 12px;
+		text-align: right;
+		font-style: italic;
+	}
+}
+
+/**
+ * Inspector
+ *
+ * Styles for the secure block inspector
+ */
+.secure-block-inspector {
+	label.secure-block-inspector__label {
+		max-width: 100%;
+	}
+
+	.secure-block-inspector__control {
+		width: 100%;
+
+		> div > div {
+			margin-top: 0px;
+		}
+	}
+
+	.muted {
+		opacity: .6;
+	}
+}

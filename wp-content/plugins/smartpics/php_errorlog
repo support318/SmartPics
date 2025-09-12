@@ -1,0 +1,29 @@
+[06-Sep-2025 17:39:42 UTC] wp_auto_login: trying to login user_id==1 loginusername=candidstudios to admin_url=https://korbex.co/wp-admin/
+[06-Sep-2025 17:40:50 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "AUTOMATOR_PRO_ITEM_NAME" in /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-api-server.php:191
+Stack trace:
+#0 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-api-server.php(191): constant('AUTOMATOR_PRO_I...')
+#1 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(439): Uncanny_Automator\Api_Server::get_item_name()
+#2 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(314): Uncanny_Automator\Usage_Reports->get_license_info()
+#3 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(1023): Uncanny_Automator\Usage_Reports->get_data()
+#4 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(235): Uncanny_Automator\Usage_Reports->send_report()
+#5 /home/customer/www/korbex.co/public_html/wp-includes/class-wp-hook.php(324): Uncanny_Automator\Usage_Reports->maybe_send_report()
+#6 /home/customer/www/korbex.co/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#7 /home/customer/www/korbex.co/public_html/wp-includes/plugin.php(565): WP_Hook->do_action(Array)
+#8 /home/customer/www/korbex.co/public_html/wp-cron.php(191): do_action_ref_array('automator_repor...', Array)
+#9 {main}
+  thrown in /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-api-server.php on line 191
+[06-Sep-2025 17:57:55 UTC] wp_auto_login: trying to login user_id==1 loginusername=candidstudios to admin_url=https://korbex.co/wp-admin/
+[06-Sep-2025 18:09:07 UTC] Cron reschedule event error for hook: action_scheduler_run_queue, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[06-Sep-2025 18:18:40 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "AUTOMATOR_PRO_ITEM_NAME" in /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-api-server.php:191
+Stack trace:
+#0 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-api-server.php(191): constant('AUTOMATOR_PRO_I...')
+#1 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(439): Uncanny_Automator\Api_Server::get_item_name()
+#2 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(314): Uncanny_Automator\Usage_Reports->get_license_info()
+#3 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(1023): Uncanny_Automator\Usage_Reports->get_data()
+#4 /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-usage-reports.php(235): Uncanny_Automator\Usage_Reports->send_report()
+#5 /home/customer/www/korbex.co/public_html/wp-includes/class-wp-hook.php(324): Uncanny_Automator\Usage_Reports->maybe_send_report()
+#6 /home/customer/www/korbex.co/public_html/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#7 /home/customer/www/korbex.co/public_html/wp-includes/plugin.php(565): WP_Hook->do_action(Array)
+#8 /home/customer/www/korbex.co/public_html/wp-cron.php(191): do_action_ref_array('automator_repor...', Array)
+#9 {main}
+  thrown in /home/customer/www/korbex.co/public_html/wp-content/plugins/uncanny-automator/src/core/classes/class-api-server.php on line 191

@@ -1,0 +1,161 @@
+/**
+ * Review Affiliate Page
+ *
+ * Mostly modifications for AI tools and new
+ * radio-based choosing system.
+ *
+ * Should only enqueued on the review page for reviewing
+ * an affiliates.
+ *
+ * @since AFFWPN
+ */
+
+@keyframes pulsate-ask-ai {
+	0% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 0.8;
+	}
+}
+
+.decision-container {
+	max-width: 62ch;
+	position: relative;
+	border-radius: 4px;
+}
+
+.decision-container.ai-answered {
+	padding: 1rem;
+}
+
+.decision-container-accept {
+	background-color: #d4edda;
+	border: 1px solid #c3e6cb;
+}
+
+.decision-container-accept p {
+	color: #155724;
+}
+
+.decision-container-reject {
+	background-color: #fff3cd;
+	border: 1px solid #ffeeba;
+}
+
+.decision-container-reject p {
+	color: #856404;
+}
+
+.recommendation-label {
+	display: inline-flex;
+	font-size: 13px;
+	line-height: 1.25rem;
+	padding: 2px 8px;
+	background-color: #d0f0fd;
+	color: #0073aa;
+	border-radius: 0.25rem;
+}
+
+.ai-reviews-left {
+	color: #646970;
+	font-size: 0.75rem;
+	position: absolute;
+	bottom: -1.5rem;
+	right: 1rem;
+}
+
+.ai-reason,
+.ai-reviews-left {
+	display: none;
+}
+
+.asking-ai .ai-reason {
+	animation: pulsate-ask-ai 1s infinite; /* Pulsate while making the AI Request */
+}
+
+.ai-reason .faux {
+	background: black;
+	display: block;
+	border-radius: 4px;
+	opacity: 0.2;
+	margin: 3px 0;
+}
+
+.ai-reason .faux:nth-child(1) {
+	width: 77%;
+}
+
+.ai-reason .faux:nth-child(3) {
+	width: 66%;
+}
+
+.ai-reason .faux:nth-child(2) {
+	width: 55%;
+}
+
+/* Show the AI Reason skeleton once we have a response/reason */
+
+.decision-container.ai-answered {
+	display: block;
+}
+
+.decision-container.asking-ai,
+.decision-container.ai-answered {
+	margin-bottom: 1rem;
+}
+
+.decision-container.asking-ai .ai-reason,
+.decision-container.ai-answered .ai-reason,
+.decision-container.ai-answered .ai-reviews-left {
+	display: block;
+}
+
+.decisions {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.review-with-ai .button-secondary {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	color: #2271b1;
+	margin-bottom: 1rem;
+}
+
+.review-with-ai svg {
+	width: 1rem;
+	height: 1rem;
+}
+
+.form-table .decisions input[type="radio"] {
+	margin: 0;
+	flex: none;
+}
+
+.form-row td .decisions label {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	line-height: 1.5rem;
+}
+
+.form-table td p.ai-reason {
+	margin: 0;
+	text-wrap: pretty;
+}
+
+@media screen and (max-width: 768px) {
+
+	.decisions {
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+}

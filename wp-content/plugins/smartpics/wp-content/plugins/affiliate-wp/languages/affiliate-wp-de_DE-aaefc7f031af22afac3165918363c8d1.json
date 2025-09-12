@@ -1,0 +1,123 @@
+{
+    "translation-revision-date": "2023-10-02 05:05-0400",
+    "generator": "WP-CLI\/2.11.0",
+    "source": "assets\/js\/editor\/build\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "de_DE",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "(required)": [
+                "(erforderlich)"
+            ],
+            "Account Email": [
+                "E-Mail Adresse des Kontos"
+            ],
+            "Affiliate Area": [
+                "Affiliatebereich"
+            ],
+            "Affiliate Registration": [
+                ""
+            ],
+            "Affiliate Terms of Use": [
+                "Seite mit den Affiliate-Nutzungsbedingungen"
+            ],
+            "Agree to our %1$sTerms of Use and Privacy Policy%2$s": [
+                ""
+            ],
+            "Confirm Password": [
+                "Passwort best\u00e4tigen"
+            ],
+            "Copy and paste the following:": [
+                "Folgendes kopieren & einf\u00fcgen:"
+            ],
+            "Creative": [
+                "Kreativ"
+            ],
+            "Default": [
+                ""
+            ],
+            "Email": [
+                "E-Mail"
+            ],
+            "Email Address": [
+                "E-Mail Adresse"
+            ],
+            "First Name": [
+                "Vorname"
+            ],
+            "General": [
+                "Allgemein"
+            ],
+            "How will you promote us?": [
+                "Wie werben Sie f\u00fcr uns?"
+            ],
+            "ID": [
+                "ID"
+            ],
+            "Last Name": [
+                "Nachname"
+            ],
+            "Log into your account": [
+                "Melde dich in deinem Konto an"
+            ],
+            "Lost your password?": [
+                "Passwort vergessen?"
+            ],
+            "Message": [
+                "Nachricht"
+            ],
+            "Name": [
+                "Bezeichnung"
+            ],
+            "Option": [
+                "Option"
+            ],
+            "Password": [
+                "Passwort"
+            ],
+            "Payment Email": [
+                "Zahlungs-E-Mail"
+            ],
+            "Phone Number": [
+                "Telefonnummer"
+            ],
+            "Pretty Affiliate URLs": [
+                "Sch\u00f6ne Partnerlinks"
+            ],
+            "Register": [
+                "Registrieren"
+            ],
+            "Register a new affiliate account": [
+                "Ein neues Affiliate-Konto registrieren"
+            ],
+            "Site Default": [
+                "Seitenstandard"
+            ],
+            "Subscribe": [
+                "Abonnieren"
+            ],
+            "Text": [
+                "Text"
+            ],
+            "URL": [
+                "URL"
+            ],
+            "Username": [
+                "Benutzername"
+            ],
+            "Website": [
+                "Webseite"
+            ],
+            "Website URL": [
+                "Website URL"
+            ],
+            "Your Name": [
+                "Ihr Name"
+            ]
+        }
+    }
+}

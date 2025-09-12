@@ -1,0 +1,765 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot-monsterinsights\n"
+
+#: src/modules/wizard-onboarding/onboarding.vue:56
+msgid "Close and Exit Wizard Without Saving"
+msgstr ""
+
+#: src/modules/wizard-onboarding/onboarding.vue:66
+msgid "Closing Setup Wizard..."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/TheWizardHeader.vue:16
+msgid "Exit Setup"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:132
+msgid ""
+"We’ve detected %1$s on your site and have auto-enabled the integration for "
+"you."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:145
+msgid ""
+"We’ve detected %1$s on your site and have auto-enabled the integrations for "
+"you."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:181
+msgid "Saving... "
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:84
+msgid "Step 2 of 5"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:85
+msgid "Plugin Integration Setup"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:86
+msgid ""
+"What plugin(s) would you like to integrate with AffiliateWP to track "
+"affiliate sales?"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:87
+msgid "Recommended Integrations"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:88
+msgid ""
+"We couldn't detect any integration(s) installed on your site. Here are some "
+"we recommend and will install for you."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:89
+msgid ""
+"We’ve detected these plugins on your site and have auto-enabled the "
+"integration for you."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:93
+msgid "All Integrations"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:96
+msgid "Continue"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:59
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:98
+msgid "Please Wait..."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:61
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepIntegrations.vue:99
+msgid "Go Back"
+msgstr ""
+
+#: src/plugins/affwpwizard-wizard-helper-plugin.js:13
+msgid "Loading settings"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepWelcome.vue:35
+msgid "Step 1 of 5"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepWelcome.vue:36
+msgid "Welcome to the AffiliateWP Setup Wizard!"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepWelcome.vue:37
+msgid ""
+"AffiliateWP makes it easy to run a successful affiliate program without the "
+"need to hire an expert. And it takes less than 5 minutes too!"
+msgstr ""
+
+#: src/plugins/affwpwizard-settings-helper-plugin.js:111
+msgid "Loading Settings"
+msgstr ""
+
+#: src/plugins/affwpwizard-settings-helper-plugin.js:19
+msgid "Saving Changes..."
+msgstr ""
+
+#: src/plugins/affwpwizard-settings-helper-plugin.js:48
+msgid "Settings Updated"
+msgstr ""
+
+# Translators: Adds a link to the settings panel.
+#: src/plugins/affwpwizard-settings-helper-plugin.js:6
+msgid "You need to %1$sconnect MonsterInsights%2$s first"
+msgstr ""
+
+#: src/plugins/affwpwizard-settings-helper-plugin.js:82
+msgid "Could Not Save Changes"
+msgstr ""
+
+#: src/modules/license/store/actions.js:62
+msgid "Your license key for AffiliateWP has expired. %1$s"
+msgstr ""
+
+#: src/modules/license/store/actions.js:67
+msgid "Please click here to renew your license key."
+msgstr ""
+
+#: src/modules/license/store/actions.js:79
+msgid ""
+"Your license key for AffiliateWP has been disabled. Please use a different "
+"key."
+msgstr ""
+
+#: src/modules/license/store/actions.js:89
+msgid ""
+"Your license key for AffiliateWP is invalid. The key no longer exists or "
+"the user associated with the key has been deleted. Please use a different "
+"key."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:105
+msgid "Saving settings..."
+msgstr ""
+
+# Translators: Integrated AffiliateWP with multiple plugins.
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:139
+msgid "Integrated AffiliateWP with %1$s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:146
+msgid "Installed Growth Tools & Pro Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:151
+msgid "Installed Growth Tools"
+msgstr ""
+
+# Translators: Installed pro features.
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:159
+msgid "Installed Pro Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:53
+msgid "Step 5 of 5"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:54
+msgid "Congratulations, Your Affiliate Program Is Now Ready!"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:55
+msgid "Here's what you've done:"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:56
+msgid "Integrated AffiliateWP with plugins"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:57
+msgid "Set up Your Commission Structure"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:58
+msgid "Reviewed Growth Tools"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:59
+msgid "Configured Affiliate Payouts"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:62
+msgid "Finish Setup and Exit"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:42
+msgid "Step 3 of 5"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:43
+msgid "Affiliate Payouts"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:44
+msgid "Select how you will pay your affiliates."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:45
+msgid "Choose your Payout Method(s)"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:46
+msgid "Payouts Service"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:47
+msgid "Pay your affiliates directly from a credit or debit card."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:49
+msgid "PayPal Payouts"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:50
+msgid "Pay your affiliates with one click."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:52
+msgid "Manual Payouts"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:55
+msgid ""
+"Pay your affiliates manually. Affiliates can be paid via PayPal, Skrill, a "
+"bank transfer, and other options."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepPayouts.vue:57
+msgid "Learn More."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/OnboardingAuthenticate-Pro.vue:32
+msgid "A license key is needed for AffiliateWP."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-OnboardingLicense-Pro.vue:47
+msgid "License Key"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-OnboardingLicense-Pro.vue:56
+msgid "Verifying License..."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-OnboardingLicense-Pro.vue:68
+msgid "Your AffiliateWP plan is active! 🙂"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-OnboardingLicense-Pro.vue:72
+msgid "Your AffiliateWP %1$s plan is active! 🙂"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-OnboardingLicense-Pro.vue:82
+msgid "Your license level is %1$s (Never expires)"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-OnboardingLicense-Pro.vue:86
+msgid "Your license level is %1$s (expires: %2$s)"
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/license/api/index.js:117
+msgid "Can't deactivate the license. Error: %1$s, %2$s"
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/license/api/index.js:144
+msgid "Can't upgrade to PRO please try again. Error: %1$s, %2$s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/api/index.js:64
+msgid "You appear to be offline."
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/license/api/index.js:18
+msgid "Can't load license details. Error: %1$s, %2$s"
+msgstr ""
+
+#: src/modules/license/api/index.js:24
+msgid "Error loading license details"
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/license/api/index.js:56
+msgid "Can't verify the license. Error: %1$s, %2$s"
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/license/api/index.js:81
+msgid "Can't validate the license. Error: %1$s, %2$s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/api/index.js:100
+msgid "Network error encountered. Settings not saved."
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/wizard-onboarding/api/index.js:24
+msgid "Can't load errors. Error: %1$s, %2$s"
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/wizard-onboarding/api/index.js:59
+msgid "Can't load settings. Error: %1$s, %2$s"
+msgstr ""
+
+# Translators: Error status and error text.
+#: src/modules/wizard-onboarding/api/index.js:95
+msgid "Can't save settings. Error: %1$s, %2$s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:103
+msgid "Select the currency your store operates in."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:104
+msgid "Commission Amount"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:105
+msgid "Configure how much an affiliate should receive in commission."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:104
+msgid "Pro Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:107
+msgid "Growth Tools"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:64
+msgid "Tiered Affiliate Rates"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:65
+msgid "Reward your affiliates with higher commission rates."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:113
+msgid ""
+"Incentivize affiliates by offering higher commission rates based on their "
+"performance. Reward top-performing affiliates with increased earnings, "
+"encouraging them to drive more sales and successful referrals."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:66
+msgid "Lifetime Commissions"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:67
+msgid "Reward your affiliates for future purchases."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:127
+msgid ""
+"Boost sales and grow your business by offering affiliates ongoing "
+"commission on referred customer purchases. Incentivize high-quality traffic "
+"and sales with motivated affiliates."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:68
+msgid "Recurring Referrals"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:69
+msgid "Reward your affiliates for subscription payments."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:134
+msgid ""
+"Reward affiliates for successful customer referrals, providing commission "
+"on recurring subscription payments made by the referred customer. Encourage "
+"repeat sales and grow your customer base while incentivizing affiliates to "
+"promote your business."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:138
+msgid "Add recommended affiliate growth tools to my site"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:146
+msgid "Google Analytics for WordPress"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:148
+msgid ""
+"Connect your site with Google Analytics to make data-driven decisions for "
+"your business."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:153
+msgid "Social Proof Notifications"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:155
+msgid ""
+"Leverage the true power of social proof to increase site conversions by up "
+"to 15%!"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:160
+msgid "All in One SEO"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:162
+msgid ""
+"Powerful toolkit to improve your SEO rankings and uncover new growth "
+"opportunities."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:167
+msgid "Landing Pages"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:169
+msgid "Create High Converting Landing Pages & Websites. 100's of Templates."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:174
+msgid "WP Mail SMTP"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:176
+msgid "Make email deliverability easy and reliable."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:181
+msgid "Uncanny Automator"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:183
+msgid ""
+"The easiest and most powerful way to automate your WordPress site with no "
+"code."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:188
+msgid "OptinMonster"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:190
+msgid ""
+"Make popups and optin forms to get more email newsletter subscribers, "
+"leads, and sales."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:196
+msgid "ID"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:200
+msgid "Username"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:206
+msgid "Per Product"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:210
+msgid "Per Order"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:269
+msgid "The following plugins will be installed for free: %1$s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:370
+msgid "Loading "
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:418
+msgid "Loading Pro Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:534
+msgid "Percentage (%)"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:538
+msgid "Flat"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:99
+msgid "Step 4 of 5"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:100
+msgid "Commissions and Growth Tools"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:101
+msgid "Configure your affiliate commission structure."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:102
+msgid "Currency"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:109
+msgid "Verifying License"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:135
+msgid "Refreshing License"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:159
+msgid "There was an error refreshing your license"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:173
+msgid "Deactivating License"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:187
+msgid "Success"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:195
+msgid "There was an error deactivating your license"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:197
+msgid "Ok"
+msgstr ""
+
+# Translators: License key type.
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:39
+msgid "Your license key type for this site is %s. "
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:40
+msgid "Verify"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:41
+msgid "Change Key"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:42
+msgid "Deactivate"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:43
+msgid "Paste your license key here"
+msgstr ""
+
+# Translators: Adds a link to retrieve the license key.
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:45
+msgid ""
+"Add your AffiliateWP license key from the email receipt or account area. "
+"%1$s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/affwpwizard-SettingsInputLicenseSite.vue:47
+msgid "Retrieve your license key"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:62
+msgid "Would you like to purchase and install the following features now?"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:63
+msgid "An upgrade is required to unlock the following features."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:72
+msgid ""
+"You won't have access to this functionality until the extensions have been "
+"purchased and installed."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:84
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:73
+msgid "I'll do it later"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:71
+msgid ""
+"Bonus: You can upgrade your plan today and save 50% off (discount "
+"auto-applied)."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:138
+msgid ""
+"Haven't upgraded yet? Log in to your AffiliateWP account to <a href='%1$s' "
+"target='_blank'>upgrade your license</a>."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:52
+msgid "Thanks for upgrading to the Professional license!"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:53
+msgid "Your Pro features will now be installed."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:57
+msgid "Install now"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingInstallModal.vue:60
+msgid "Skip this step"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputNumber.vue:53
+msgid "Reset to default"
+msgstr ""
+
+# Translators: Minimum and maximum number that can be used.
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputNumber.vue:55
+msgid "Please enter a value between %1$s and %2$s"
+msgstr ""
+
+# Translators: The minimum set value.
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputNumber.vue:57
+msgid "Please enter a value higher than %s"
+msgstr ""
+
+# Translators: The maximum set value.
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputNumber.vue:59
+msgid "Please enter a value lower than %s"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputNumber.vue:60
+msgid "Please enter a number"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputNumber.vue:61
+msgid "Value has to be a round number"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/inputs/SettingsInputSelect.vue:62
+msgid "No options available"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:74
+msgid ""
+"Bonus: You can upgrade your plan today and save 60% off (discount "
+"auto-applied)."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:103
+msgid "Plus Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:70
+msgid "Multi-Currency"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:123
+msgid ""
+"Convert commissions from other currencies to your Affiliate's program "
+"default currency."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:124
+msgid ""
+"Enhance AffiliateWP with comprehensive multi-currency support, enabling "
+"real-time exchange rates and commission conversion."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:123
+msgid ""
+"Convert commissions from order in different currencies to your Affiliate's "
+"program default currency."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:119
+msgid ""
+"Convert commissions from multi-currency orders to your program's default "
+"currency."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:124
+msgid ""
+"Upgrade AffiliateWP with full multi-currency support, featuring real-time "
+"exchange rates and automatic commission conversion."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:120
+msgid ""
+"Upgrade AffiliateWP with multi-currency support, featuring real-time "
+"exchange rates and automatic commission conversion."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:106
+msgid "Advanced Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:71
+msgid "Convert multi-currency order commissions to your program's default currency."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:156
+msgid "Installed Advanced Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:83
+msgid "Upgrade to Plus"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:418
+msgid "Loading Advanced Features"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:64
+msgid "Multi-Tier Commissions"
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:113
+msgid ""
+"Enables your affiliates to grow their networks and boost earnings through "
+"recruit sales, improving overall sales and benefiting both your business "
+"and your affiliates."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:112
+msgid ""
+"Motivate affiliates to grow their networks by earning commissions on sales "
+"made by recruits."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/OnboardingUpgradeModal.vue:65
+msgid "Affiliates boost earnings by growing their network."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:119
+msgid "Automatic currency conversion for affiliate commissions."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:120
+msgid ""
+"Enhance AffiliateWP with multi-currency support, featuring real-time "
+"exchange rates and automatic commission conversion."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:119
+msgid "Essential for stores operating in multiple currencies."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepCommissions.vue:120
+msgid ""
+"Ensures accurate affiliate commissions by converting the order's "
+"originating currency into the affiliate program's currency using real-time "
+"exchange rates."
+msgstr ""
+
+#: src/modules/wizard-onboarding/components/steps/OnboardingStepAllSet.vue:146
+msgid "Installed Growth Tools & Advanced Features"
+msgstr ""
