@@ -1,0 +1,26 @@
+/* CONTENT AREA TEXT FIX ONLY - NO SIDEBAR MODIFICATIONS */
+
+/* Fix SmartPics main content area text visibility only */
+.smartpics-admin-page,
+.smartpics-admin-page *,
+.smartpics-dashboard,
+.smartpics-dashboard *,
+.wrap.smartpics-wrap,
+.wrap.smartpics-wrap *,
+[class*="smartpics-"] {
+    color: #1d2327 !important;
+    opacity: 1 !important;
+}
+
+/* Fix buttons in SmartPics content area only */
+.wrap .button-primary,
+.wrap input[type="submit"].button-primary {
+    color: #fff !important;
+}
+
+.wrap .button,
+.wrap .button-secondary {
+    color: #2c3338 !important;
+}
+
+/* NO SIDEBAR MODIFICATIONS - Let WordPress handle all sidebar styling */

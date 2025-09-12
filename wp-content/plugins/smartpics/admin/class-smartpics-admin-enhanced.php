@@ -818,7 +818,11 @@ class SmartPics_Admin_Enhanced {
             return;
         }
         
+        // TEMPORARILY DISABLE ALL CSS TO FIX SIDEBAR
+        /*
         wp_enqueue_style('smartpics-admin-enhanced', SMARTPICS_PLUGIN_URL . 'assets/css/admin-enhanced.css', array(), SMARTPICS_VERSION);
+        wp_enqueue_style('smartpics-content-fix', SMARTPICS_PLUGIN_URL . 'assets/css/content-only-fix.css', array('smartpics-admin-enhanced'), SMARTPICS_VERSION . '-content');
+        */
         wp_enqueue_script('smartpics-admin', SMARTPICS_PLUGIN_URL . 'assets/js/admin.js', array('jquery'), SMARTPICS_VERSION, true);
         
         wp_localize_script('smartpics-admin', 'smartpics_admin', array(

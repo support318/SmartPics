@@ -1,0 +1,113 @@
+/* EMERGENCY TEXT VISIBILITY FIX - MAXIMUM PRIORITY */
+
+/* WordPress Admin Sidebar - Force visibility for SmartPics menu */
+body.wp-admin #adminmenu .wp-submenu a[href*="smartpics"],
+body.wp-admin #adminmenu .wp-submenu li a[href*="smartpics"],
+body.wp-admin #adminmenu .wp-submenu-wrap a[href*="smartpics"] {
+    color: #000000 !important;
+    background-color: #f9f9f9 !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+body.wp-admin #adminmenu .wp-submenu a[href*="smartpics"]:hover,
+body.wp-admin #adminmenu .wp-submenu li a[href*="smartpics"]:hover {
+    color: #ffffff !important;
+    background-color: #2271b1 !important;
+}
+
+/* SmartPics submenu background fix */
+body.wp-admin #adminmenu .wp-submenu-wrap {
+    background: #f0f0f1 !important;
+}
+
+/* Configure Settings Button - Force visibility */
+.wrap .button-primary,
+.wrap input[type="submit"],
+button.button-primary,
+a.button-primary,
+input.button-primary {
+    color: #ffffff !important;
+    background: #2271b1 !important;
+    border-color: #2271b1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+.wrap .button-primary:hover,
+.wrap input[type="submit"]:hover,
+button.button-primary:hover,
+a.button-primary:hover,
+input.button-primary:hover {
+    color: #ffffff !important;
+    background: #135e96 !important;
+    border-color: #135e96 !important;
+}
+
+/* All buttons in SmartPics interface */
+.wrap .button,
+.wrap .button-secondary,
+button.button,
+a.button,
+input.button {
+    color: #2c3338 !important;
+    background: #f6f7f7 !important;
+    border-color: #8c8f94 !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+.wrap .button:hover,
+.wrap .button-secondary:hover {
+    color: #2c3338 !important;
+    background: #ffffff !important;
+    border-color: #8c8f94 !important;
+}
+
+/* Force all text in SmartPics pages to be visible */
+.wrap h1,
+.wrap h2,
+.wrap h3,
+.wrap p,
+.wrap div,
+.wrap span,
+.wrap li,
+.wrap td,
+.wrap th {
+    color: #1d2327 !important;
+    opacity: 1 !important;
+}
+
+/* Navigation tabs */
+.wrap .nav-tab {
+    color: #50575e !important;
+    background: #f6f7f7 !important;
+    border-color: #c3c4c7 !important;
+    font-weight: 600 !important;
+}
+
+.wrap .nav-tab-active {
+    color: #1d2327 !important;
+    background: #ffffff !important;
+    border-bottom-color: #ffffff !important;
+}
+
+/* Form elements */
+.wrap input[type="text"],
+.wrap input[type="password"],
+.wrap select,
+.wrap textarea {
+    color: #2c3338 !important;
+    background: #ffffff !important;
+}
+
+/* Labels */
+.wrap label {
+    color: #1d2327 !important;
+    font-weight: 600 !important;
+}

@@ -80,12 +80,22 @@ class SmartPics_Admin {
             return;
         }
         
+        // TEMPORARILY DISABLE ALL CSS TO FIX SIDEBAR
+        /*
         wp_enqueue_style(
             'smartpics-admin-style',
             SMARTPICS_PLUGIN_URL . 'assets/css/admin.css',
             array(),
             SMARTPICS_VERSION
         );
+        
+        wp_enqueue_style(
+            'smartpics-content-fix',
+            SMARTPICS_PLUGIN_URL . 'assets/css/content-only-fix.css',
+            array('smartpics-admin-style'),
+            SMARTPICS_VERSION . '-content'
+        );
+        */
         
         wp_enqueue_script(
             'smartpics-admin-script',

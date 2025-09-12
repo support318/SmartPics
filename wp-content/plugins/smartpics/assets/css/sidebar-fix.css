@@ -1,0 +1,70 @@
+/* SmartPics Sidebar and Button Text Visibility Fix */
+
+/* WordPress Admin Sidebar - SmartPics Menu Items */
+#adminmenu .wp-submenu a[href*="smartpics"] {
+    color: #1a1a1a !important;
+    background: #f8f9fa !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+#adminmenu .wp-submenu a[href*="smartpics"]:hover {
+    color: #000 !important;
+    background: #fff !important;
+}
+
+/* All buttons in SmartPics admin pages */
+.wrap .button,
+.wrap .button-primary,
+.wrap .button-secondary,
+.wrap input[type="submit"],
+.configure-settings-btn,
+button[class*="configure"],
+button[class*="settings"],
+a[class*="configure"],
+a[class*="settings"] {
+    color: #1a1a1a !important;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%) !important;
+    border: 1px solid #ddd !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+.wrap .button:hover,
+.wrap .button-primary:hover,
+.wrap .button-secondary:hover {
+    color: #000 !important;
+    background: #fff !important;
+    border-color: #bbb !important;
+}
+
+/* Force all navigation tabs to be visible */
+.nav-tab {
+    color: #1a1a1a !important;
+    background: #f0f0f1 !important;
+    border: 1px solid #ccc !important;
+}
+
+.nav-tab-active {
+    color: #000 !important;
+    background: #fff !important;
+    border-bottom-color: #fff !important;
+}
+
+/* Force all form elements to be readable */
+.smartpics-admin-page input,
+.smartpics-admin-page select,
+.smartpics-admin-page textarea,
+.smartpics-admin-page label {
+    color: #1a1a1a !important;
+}
+
+/* WordPress submenu items specifically for SmartPics */
+#adminmenu .wp-submenu-wrap {
+    background: #f8f9fa !important;
+}
+
+#adminmenu .wp-submenu li a {
+    color: #1a1a1a !important;
+}

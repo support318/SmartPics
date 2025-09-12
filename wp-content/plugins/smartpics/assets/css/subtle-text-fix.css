@@ -1,0 +1,36 @@
+/* SUBTLE TEXT VISIBILITY FIX - PRESERVE WORDPRESS ADMIN STYLING */
+
+/* Only fix text color for SmartPics sidebar menu items - keep WordPress defaults */
+#adminmenu .wp-submenu a[href*="smartpics"] {
+    color: #f0f6fc !important; /* WordPress default submenu text color */
+}
+
+#adminmenu .wp-submenu a[href*="smartpics"]:hover,
+#adminmenu .wp-submenu a[href*="smartpics"]:focus {
+    color: #00a0d2 !important; /* WordPress default hover color */
+}
+
+/* Only fix button text - keep WordPress button styling */
+.wrap .button-primary {
+    color: #fff !important; /* WordPress default primary button text */
+}
+
+.wrap .button-secondary, .wrap .button {
+    color: #2c3338 !important; /* WordPress default secondary button text */
+}
+
+/* Fix any overly light text in SmartPics content area only */
+.smartpics-admin-page,
+.smartpics-dashboard,
+[class*="smartpics"] {
+    color: #1d2327 !important; /* WordPress default admin text color */
+}
+
+/* Remove any custom backgrounds - let WordPress handle styling */
+#adminmenu .wp-submenu {
+    background: inherit !important;
+}
+
+#adminmenu .wp-submenu-wrap {
+    background: inherit !important;
+}

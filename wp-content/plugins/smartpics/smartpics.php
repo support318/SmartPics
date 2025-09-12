@@ -158,6 +158,7 @@ class SmartPics {
         add_action('add_attachment', array($this, 'process_new_attachment'));
         
         add_action('wp_head', array($this, 'output_schema_markup'));
+        // add_action('admin_head', array($this, 'emergency_admin_css')); // DISABLED TO FIX SIDEBAR
     }
     
     private function admin_init() {
@@ -275,6 +276,28 @@ class SmartPics {
         if (!empty($schema)) {
             echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
         }
+    }
+    
+    public function emergency_admin_css() {
+        $screen = get_current_screen();
+        if (!$screen || strpos($screen->id, 'smartpics') === false) {
+            return;
+        }
+        ?>
+        <style type="text/css">
+        /* CONTENT AREA ONLY - NO SIDEBAR MODIFICATIONS */
+        .wrap .button-primary {
+            color: #fff !important;
+        }
+        .wrap .button-secondary, .wrap .button {
+            color: #2c3338 !important;
+        }
+        /* Fix SmartPics content text only */
+        .smartpics-admin-page, .smartpics-dashboard, [class*="smartpics"] {
+            color: #1d2327 !important;
+        }
+        </style>
+        <?php
     }
     
     public function ajax_process_image() {

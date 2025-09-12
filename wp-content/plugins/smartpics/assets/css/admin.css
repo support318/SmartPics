@@ -1290,3 +1290,22 @@
         padding: 16px;
     }
 }
+
+/* CONTENT AREA TEXT VISIBILITY FIX ONLY - NO SIDEBAR MODIFICATIONS */
+.smartpics-admin-page *, 
+.smartpics-dashboard *,
+[class*='smartpics'] * {
+    color: #1a1a1a !important;
+    opacity: 1 !important;
+}
+
+/* Button fixes in content area only - NO SIDEBAR TOUCHES */
+.wrap .nav-tab,
+.wrap .button, 
+.wrap .button-primary, 
+.wrap .button-secondary,
+.wrap input[type="submit"],
+.configure-settings-btn {
+    color: inherit !important;
+    opacity: 1 !important;
+}
